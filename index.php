@@ -147,64 +147,9 @@ require 'template-parts/header.php';
                             <span>Ваш показатель</span>
                         </span>
                     </div>
-                    <div class="grid grid-2">
-                        <?php
-                        $totalFluid = $metabolism['bioimpedansometry']['totalFluid'];
-                        if ($totalFluid) {
-                            $render->get_result_item('Общая жидкость, л', $totalFluid);
-                        }
-                        $intracellularFluid = $metabolism['bioimpedansometry']['intracellularFluid'];
-                        if ($intracellularFluid) {
-                            $render->get_result_item('Внутриклеточная жидкость, л', $intracellularFluid);
-                        }
-
-                        // Внеклеточная жидкость, л
-                        // Соотношение ВКЖ/ОКЖ
-
-                        $fatMassKg = $metabolism['bioimpedansometry']['fatMassKg'];
-                        if ($fatMassKg) {
-                            $render->get_result_item('Содержание жира в теле, кг', $fatMassKg);
-                        }
-                        $fatMassPercent = $metabolism['bioimpedansometry']['fatMassPercent'];
-                        if ($fatMassPercent) {
-                            $render->get_result_item('Процентное содержание жира, %', $fatMassPercent);
-                        }
-
-                        $visceralFat = $metabolism['bioimpedansometry']['visceralFat'];
-                        if ($visceralFat) {
-                            $render->get_result_item('Висцелярный жир', $visceralFat);
-                        }
-                        $fatMassPercent = $metabolism['bioimpedansometry']['fatMassPercent'];
-                        if ($fatMassPercent) {
-                            $render->get_result_item('Степень ожирения, %', $fatMassPercent);
-                        }
-
-                        $muscleMassKg = $metabolism['bioimpedansometry']['muscleMassKg'];
-                        if ($muscleMassKg) {
-                            $render->get_result_item('Масса скелетной мускулатуры, кг', $muscleMassKg);
-                        }
-                        $skinnyBodyMass = $metabolism['bioimpedansometry']['skinnyBodyMass'];
-                        if ($skinnyBodyMass) {
-                            $render->get_result_item('Тощая масса, кг', $skinnyBodyMass);
-                        }
-
-                        $muscleMassKg = $metabolism['bioimpedansometry']['muscleMassKg'];
-                        if ($muscleMassKg) {
-                            $render->get_result_item('Безжировая масса, кг', $muscleMassKg);
-                        }
-                        $activeCellMass = $metabolism['bioimpedansometry']['activeCellMass'];
-                        if ($activeCellMass) {
-                            $render->get_result_item('Активная масса клеток, кг', $activeCellMass);
-                        }
-
-                        // Индекс массы скелетной мускулатуры
-                        // Протеин (белок), кг
-
-                        // Минералы, кг
-                        // Масса минералов в костях, кг
-
-                        ?>
-                    </div>
+                    <?php
+                    require 'template-parts/results-grid.php';
+                    ?>
                     <div class="results-text">*Если вам потребуются разъяснения, обратитесь к специалисту.</div>
                 </div>
             </div>
@@ -683,41 +628,9 @@ require 'template-parts/header.php';
     <section class="section results-conclusion">
         <div class="section__container _container">
             <div class="section__body">
-                <div class="params-item params-info large">
-                    <div class="params-item__wrap">
-                        <div class="icon">
-                            <svg width="48" height="48" viewBox="0 0 48 48">
-                                <use xlink:href='assets/img/svg/icons.svg#info' />
-                            </svg>
-                        </div>
-                        <h3>Заключение по биоимпедансному анализу</h3>
-                        <p>Ваш фактический рацион не отвечает потребностям вашего организма. Наблюдается дефицит
-                            углеводов, избыток жиров, избыток
-                            белка. 52.4% важнейших для здоровья элементов содержатся в вашем рационе в
-                            необходимом
-                            количестве. Несмотря на это,
-                            следующие витамины и минералы поступают в недостаточном количестве: витамин A,
-                            бета-каротин,
-                            витамин D, витамин E,
-                            витамин K, витамин С, холин, витамин В5, витамин В9, кальций, железо, калий, хлор,
-                            бор, йод.
-                            В вашем фактическом рационе
-                            преобладают такие группы продуктов, как овощи и молочные продукты. Анализ состава
-                            жирных
-                            кислот показал допустимое
-                            соотношение омега-3/омега-6. Желательно повысить употребление продуктов, богатых
-                            омега-3
-                            жирными кислотами для
-                            достижения оптимального соотношения омега-3/омега-6. Вы потребляете оптимальное
-                            количество
-                            простых сахаров. В вашем
-                            рационе недостаточно клетчатки. Это снижает ваше насыщение, ухудшает пищеварение и
-                            повышает
-                            риск развития некоторых
-                            заболеваний. В целом, вы потребляете меньше калорий, чем вам требуется для вашей
-                            цели.</p>
-                    </div>
-                </div>
+                <?php
+                require 'template-parts/results-conclusion.php';
+                ?>
             </div>
         </div>
     </section>
@@ -746,138 +659,9 @@ require 'template-parts/header.php';
             </div>
             <div class="section__container _container">
                 <div class="section__body">
-                    <?php if ($diary['diet_restrictions']) : ?>
-                        <div class="nutrition-title">
-                            <span>Тип питания:</span>
-                            <?php foreach ($diary['diet_restrictions'] as $item) : ?>
-                                <span><?php echo $item ?></span>
-                            <?php endforeach; ?>
-                        </div>
-                    <?php endif; ?>
-
-                    <div class="grid">
-                        <?php if ($diary['waterDeviationFromNorm']) : ?>
-                            <div class="params-item fluid-amount">
-                                <div class="params-item__flex">
-                                    <div class="params-item__left">
-                                        <div class="icon">
-                                            <svg width="22" height="26" viewBox="0 0 22 26">
-                                                <use xlink:href='assets/img/svg/icons.svg#glass' />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="params-item__right">
-                                        <label>Количество потребляемой жидкости</label>
-                                    </div>
-                                </div>
-                                <div class="params-item__text">
-                                    <div class="results-compare">
-                                        <span class="results-norm">
-                                            <span></span>
-                                            <span>Норма</span>
-                                        </span>
-                                        <span class="results-patient">
-                                            <span></span>
-                                            <span>Ваш показатель</span>
-                                        </span>
-                                    </div>
-                                    <div class="result-item__scale">
-                                        <?php
-                                        $water_min = $diary['waterDeviationFromNorm']['minThreshold'];
-                                        $water_max = $diary['waterDeviationFromNorm']['maxThreshold'];
-                                        $water_current = $diary['waterDeviationFromNorm']['mass'];
-                                        $water_norm = $diary['waterDeviationFromNorm']['norm'];
-                                        $water_unit = $diary['waterDeviationFromNorm']['unit'];
-
-                                        $water_status = '';
-                                        if ($water_current > $water_norm) {
-                                            $water_status = 'red';
-                                        }
-
-                                        $water_percents = $render->calc_to_percent($water_min, $water_max, $water_current, $water_norm);
-                                        ?>
-                                        <div style="--norma:<?php echo $water_percents['norma'] ?>; --patient:<?php echo $water_percents['patient'] ?>" class="<?php echo $water_status ?>"></div>
-                                        <p class="fluid-amount__result">
-                                            <span class="fluid-amount__patient <?php echo $water_status ?>">
-                                                Выпито <?php echo $render->format_num(($water_current / 1000)) ?> л</span>
-                                            <span class="fluid-amount__norma">Цель <?php echo $render->format_num(($water_norm / 1000)) ?> л</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endif; ?>
-
-                        <?php if ($diary['calorieDistributionOfMeals']) : ?>
-                            <div class="params-item calorie-distribution">
-                                <div class="params-item__flex">
-                                    <div class="params-item__left">
-                                        <div class="icon">
-                                            <svg width="22" height="26" viewBox="0 0 22 26">
-                                                <use xlink:href='assets/img/svg/icons.svg#cutlery' />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="params-item__right">
-                                        <label>Распределение калорийности приёмов пищи</label>
-                                    </div>
-                                </div>
-                                <div class="params-item__text">
-                                    <div class="calorie-distribution__flex">
-                                        <?php foreach ($diary['calorieDistributionOfMeals'] as $item) : ?>
-                                            <div style="width: <?php echo $item['percent'] ?>%;">
-                                                <time><?php echo $item['time'] ?></time>
-                                                <span><?php echo $item['ingestion'] ?></span>
-                                            </div>
-                                        <?php endforeach; ?>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-
-                    <div class="nutrition-info text-accent italic">
-                        Рацион человека состоит из нескольких десятков важнейших для здоровья веществ: витамины,
-                        минералы,
-                        белки и др. Очень
-                        важно, чтобы их содержание было в норме. То есть соответствовало потребностям вашего
-                        организма. Если
-                        в вашем меню
-                        количество каких-либо из этих веществ длительно находится в избытке (поступает слишком
-                        много) или в
-                        дефиците (поступает
-                        слишком мало), то это может привести к различным заболеваниям.
-                        Анализ вашего прошлого рациона показал, что: 52% важнейших веществ поступает в ваш организм
-                        в
-                        оптимальном количестве. В
-                        то же время 43% полезных веществ вы недополучаете. А 5% — поступают в организм в чрезмерно
-                        большом
-                        количестве.
-                    </div>
                     <?php
-                    $nutr_graphic  = $diary['nutrientsInfo']['meta'];
-                    if ($nutr_graphic) :
+                    require 'template-parts/nutrition.php';
                     ?>
-                        <div class="nutrition-graphic">
-                            <h3>Из всех важнейших веществ в вашем рационе:</h3>
-                            <div class="nutrition-graphic__flex">
-                                <div class="nutrition-graphic__item nomra chart" data-percent="<?php echo $nutr_graphic['normal'] ?>" data-color="#1dbdf5">
-                                    <canvas></canvas>
-                                    <span class="percent"><?php echo $nutr_graphic['normal'] ?> %</span>
-                                    <span class="status">в норме</span>
-                                </div>
-                                <div class="nutrition-graphic__item deficit chart" data-percent="<?php echo $nutr_graphic['deficit'] ?>" data-color="#d26256">
-                                    <canvas></canvas>
-                                    <span class="percent"><?php echo $nutr_graphic['deficit'] ?>%</span>
-                                    <span class="status">в дефиците</span>
-                                </div>
-                                <div class="nutrition-graphic__item excess chart" data-percent="<?php echo $nutr_graphic['excess'] ?>" data-color="#1dbdf5">
-                                    <canvas></canvas>
-                                    <span class="percent"><?php echo $nutr_graphic['excess'] ?>%</span>
-                                    <span class="status">в избытке</span>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endif; ?>
                 </div>
             </div>
         </section>
@@ -889,74 +673,9 @@ require 'template-parts/header.php';
             <section class="section nutrition-table">
                 <div class="section__container _container">
                     <div class="section__body">
-                        <div class="text-accent italic">
-                            <p>На этой странице показана пищевая ценность вашего прошлого рациона. Иными словами —
-                                <b>содержание</b> полезных и
-                                некоторых вредных для здоровья веществ. Голубой цвет — оптимальное количество. Красный —
-                                недостаточное или слишком
-                                избыточное количество вещества, что может негативно влиять на ваше здоровье или состав
-                                тела.
-                                Значения рассчитаны в
-                                среднем за один день.
-                            </p>
-                        </div>
-                        <div class="nutrition-table__item">
-                            <span>
-                                <span>Показатель</span>
-                                <span>% от вашей нормы</span>
-                            </span>
-                            <table>
-                                <thead>
-                                    <?php
-                                    $nutrients_energy = $nutrients['energy']['energy'];
-                                    ?>
-                                    <tr>
-                                        <th>Калорийность</th>
-                                        <th style="--width:<?php echo $nutrients_energy['percent'] ?>%">1 <?php echo $nutrients_energy['unit'] ?></th>
-                                        <th><?php echo $nutrients_energy['percent'] ?>%</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    $nutrients_caloreis = [
-                                        $nutrients['protein'],
-                                        $nutrients['fats'],
-                                        $nutrients['carbohydrate']
-                                    ];
-                                    foreach ($nutrients_caloreis as $nutrient) {
-                                        $render->get_table_row($nutrient);
-                                    }
-                                    ?>
-                                </tbody>
-                            </table>
-                        </div>
-
                         <?php
-                        $nutrients_array = [
-                            'Прочее' => $nutrients['other'],
-                            'Витамины' => $nutrients['vitamins'],
-                            'Минаралы' => $nutrients['minerals']
-                        ];
-                        if ($nutrients_array) :
-                            foreach ($nutrients_array as $key => $nutrient) :
+                        require 'template-parts/nutrition-table.php';
                         ?>
-                                <div class="nutrition-table__item">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th><?php echo $key ?></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            $render->get_table_row($nutrient);
-                                            ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                        <?php endforeach;
-                        endif;  ?>
-
                     </div>
                 </div>
             </section>
@@ -981,6 +700,7 @@ require 'template-parts/header.php';
                     </div>
                 </div>
             </section>
+
         <?php endif; ?>
 
         <?php
@@ -1071,9 +791,6 @@ require 'template-parts/header.php';
                 </div>
             </div>
         </section>
-
-       
-
     <?php endif; ?>
 
     <?php
