@@ -17,6 +17,22 @@
             max-width: 100%;
             /* или еще меньше */
         }
+
+        .shopping-list__item {
+            height: fit-content;
+        }
+
+        .shopping-list .tabs-content {
+            margin-top: 40px;
+        }
+
+        .recepies-item__text ol {
+            padding-left: 0;
+        }
+
+        .recepies-item__text li {
+            list-style: none;
+        }
     </style>
 </head>
 

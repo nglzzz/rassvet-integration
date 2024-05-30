@@ -21,6 +21,9 @@ if ($patient['gender'] = 1) {
 $metabolism = $patient['meta'];
 $diary = $json_data['diary'];
 $ration = $json_data['ration'];
+$rationOnWeeks = $ration['rationOnWeeks'];
+$shoppingList = $ration['shoppingList'];
+$recipeOnWeeks = $ration['recipeOnWeeks'];
 
 $show_section = false;
 ?>
@@ -31,85 +34,16 @@ require 'template-parts/header.php';
 ?>
 
 <main>
-    <section class="hero">
-        <div class="hero__bgi">
-            <img src="assets/img/hero.png" alt="">
-        </div>
-        <div class="hero__container _container">
-            <div class="hero__body">
-                <h1>Персональный отчёт <br> и рекомендации
-                    <span>по состоянию здоровья и питанию</span>
-                </h1>
-                <div class="hero__patient">
-                    <span class="hero__patient-name"><?php echo $patient_name ?></span>
-                    <span class="hero__patient-age"><?php echo $patient['age'] ?> лет</span>
-                </div>
-                <div class="hero__author">
-                    <span class="hero__author-name">
-                        <span>Составил</span> <?php echo $doctor_name ?>
-                    </span>
-                    <span class="hero__author-info">
-                        <?php
-                        echo $doctor['profession'];
-                        if ($doctor['title']) {
-                            echo ' ';
-                            echo $doctor['title'];
-                        }
-                        if ($doctor['post']) {
-                            echo ', ';
-                            echo $doctor['post'];
-                        }
-                        if ($doctor['work']) {
-                            echo ' ';
-                            echo $doctor['work'];
-                        }
-                        ?>
-                    </span>
-                </div>
-                <div class="hero__date">
-                    <?php if ($doctor['city']) : ?>
-                        <span><?php echo $doctor['city'] ?></span>
-                    <?php endif; ?>
-                    <time><?php echo date('d.m.Y') ?></time>
-                </div>
-            </div>
-        </div>
-    </section>
+    <?php
+    require 'template-parts/hero.php';
+    ?>
 
     <section class="section intro">
         <div class="section__container _container">
             <div class="section__body">
-                <div class="section__top _center _accent">
-                    <h2>
-                        <?php
-                        if ($gender == 'female') {
-                            echo 'Уважаемая';
-                        } else {
-                            echo 'Уважаемый';
-                        }
-                        ?>
-                        <?php echo $patient['middle_name'] . ' ' . $patient['first_name'] ?>
-                    </h2>
-                </div>
-                <div>
-                    <p>Перед вами ваш персональный отчёт. Это важный шаг на пути к сбалансированному питанию,
-                        здоровью и
-                        профилактике
-                        заболеваний.</p>
-                    <p>Рацион и рекомендации разработаны строго под вашу ситуацию. Поэтому они помогут безопасно
-                        и
-                        комфортно
-                        достичь вашу цель.</p>
-                    <p>Вся информация в этой «мини-книге» учитывает ваши индивидуальные параметры, пищевые
-                        предпочтения,
-                        активность, состояние
-                        здоровья и запрос по массе тела. Кроме того, вся аналитика, меню и рекомендации в отчёте
-                        созданы
-                        строго
-                        на основе
-                        современных научных данных.</p>
-                    <p>Приятного изучения и применения!</p>
-                </div>
+                <?php
+                require 'template-parts/section-bodies/intro.php';
+                ?>
             </div>
         </div>
     </section>
@@ -729,13 +663,13 @@ require 'template-parts/header.php';
                 <div class="section__body">
                     <div class="tabs">
                         <?php
-                        $render->get_tabs($ration['rationOnWeeks'], 'Неделя', $inner = false);
+                        $render->get_tabs($rationOnWeeks, 'Неделя', $inner = false);
                         ?>
                     </div>
                     <div class="tabs-content">
                         <?php
                         $i = 1;
-                        foreach ($ration['rationOnWeeks'] as $item) :
+                        foreach ($rationOnWeeks as $item) :
                             if ($i == 1) {
                                 $_active = '_active';
                             } else {
@@ -787,6 +721,89 @@ require 'template-parts/header.php';
                     </div>
                     <div class="nutrition-plan__img">
                         <img src="assets/img/nutrition-plan.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+    <?php endif; ?>
+
+
+    <?php if ($shoppingList) : ?>
+        <section class="section shopping-list" data-tabs-area>
+            <div class="shopping-list__img">
+                <img src="img/shopping-list.png" alt="">
+            </div>
+            <div class="section__linear">
+                <div class="_container">
+                    <h2>Список продуктов для покупок</h2>
+                </div>
+            </div>
+            <div class="section__container _container">
+                <div class="section__body">
+                    <div class="tabs">
+                        <?php
+                        $render->get_tabs($shoppingList, 'Неделя', $inner = false);
+                        ?>
+                    </div>
+                    <div class="tabs-content">
+                        <?php
+                        $i = 1;
+                        foreach ($shoppingList as $item) :
+                            if ($i == 1) {
+                                $_active = '_active';
+                            } else {
+                                $_active = '';
+                            }
+                        ?>
+                            <div data-tab-content="<?php echo $i ?>" class="<?php echo $_active ?>">
+                                <?php
+                                $render->get_shopping_list($item);
+                                ?>
+                            </div>
+                        <?php $i++;
+                        endforeach; ?>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <?php endif; ?>
+
+    <?php if ($recipeOnWeeks) : ?>
+        <section class="section recepies" data-tabs-area>
+            <div class="recepies-img">
+                <img src="img/recepies.png" alt="">
+            </div>
+            <div class="section__linear">
+                <div class="_container">
+                    <h2>Рецепты</h2>
+                </div>
+            </div>
+            <div class="section__container _container">
+                <div class="section__body">
+                    <div class="section__top">
+                        <div class="tabs">
+                            <?php
+                            $render->get_tabs($recipeOnWeeks, 'Неделя', $inner = false);
+                            ?>
+                        </div>
+                    </div>
+                    <div class="tabs-content">
+                        <?php
+                        $i = 1;
+                        foreach ($recipeOnWeeks as $item) :
+                            if ($i == 1) {
+                                $_active = '_active';
+                            } else {
+                                $_active = '';
+                            }
+                        ?>
+                            <div data-tab-content="<?php echo $i ?>" class="<?php echo $_active ?>">
+                                <?php
+                                $render->get_recepies($item);
+                                ?>
+                            </div>
+                        <?php $i++;
+                        endforeach; ?>
                     </div>
                 </div>
             </div>

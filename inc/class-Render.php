@@ -156,4 +156,17 @@ class Render
         if (!$data) return;
         require 'template-parts/nutrition-plan__total.php';
     }
+
+
+    function get_shopping_list($data)
+    {
+        if (!$data) return;
+        require 'template-parts/shopping-list.php';
+    }
+
+    function get_recepies($data)
+    {
+        if (!$data) return;
+        require 'template-parts/recepies.php';
+    }
 }
