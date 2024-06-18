@@ -56,6 +56,27 @@ class Render
         return number_format($num, $symbols, '.');
     }
 
+    function find_key($arr, $keySearch)
+    {
+        $out = false;
+        if (is_array($arr)) {
+            if (array_key_exists($keySearch, $arr)) {
+                $out = $arr[$keySearch];
+            } else {
+                foreach ($arr as $key => $value) {
+                    if ($out = self::find_key($value, $keySearch)) {
+                        break;
+                    }
+                }
+            }
+        }
+        return $out;
+    }
+
+    function get_text($url, $tempalte = '')
+    {
+    }
+
     // results compare percents
     function calc_to_percent($min, $max, $current, $norm)
     {
@@ -93,6 +114,65 @@ class Render
         endforeach;
     }
 
+    // param results array
+    function get_param_results_array($metabolism, $chunk = false)
+    {
+        if (!$metabolism) return;
+
+        $results = [
+            [
+                'data' => $metabolism['bioimpedansometry']['totalFluid'],
+                'title' => 'Общая жидкость, л',
+            ],
+            [
+                'data' => $metabolism['bioimpedansometry']['intracellularFluid'],
+                'title' => 'Внутриклеточная жидкость, л',
+            ],
+            // Внеклеточная жидкость, л
+            // Соотношение ВКЖ/ОКЖ
+            [
+                'data' => $metabolism['bioimpedansometry']['fatMassKg'],
+                'title' => 'Содержание жира в теле, кг',
+            ],
+            [
+                'data' => $metabolism['bioimpedansometry']['fatMassPercent'],
+                'title' => 'Процентное содержание жира, %',
+            ],
+            [
+                'data' => $metabolism['bioimpedansometry']['visceralFat'],
+                'title' => 'Висцелярный жир',
+            ],
+            [
+                'data' => $metabolism['bioimpedansometry']['muscleMassKg'],
+                'title' => 'Масса скелетной мускулатуры, кг',
+            ],
+            [
+                'data' => $metabolism['bioimpedansometry']['skinnyBodyMass'],
+                'title' => 'Тощая масса, кг',
+            ],
+            [
+                'data' => $metabolism['bioimpedansometry']['muscleMassKg'],
+                'title' => 'Безжировая масса, кг',
+            ],
+            [
+                'data' => $metabolism['bioimpedansometry']['activeCellMass'],
+                'title' => 'Активная масса клеток, кг',
+            ],
+
+            // Индекс массы скелетной мускулатуры
+            // Протеин (белок), кг
+
+            // Минералы, кг
+            // Масса минералов в костях, кг
+        ];
+
+        if ($chunk) {
+            return array_chunk($results, 10);
+        }
+
+        return $results;
+    }
+
     // result item
     function get_result_item($title, $data, $template = 'result-item')
     {
@@ -100,6 +180,50 @@ class Render
         $percent = $this->calc_to_percent($data['minThreshold'], $data['maxThreshold'], $data['mass'], $data['norm']);
         $delta = $data['maxThreshold'] - $data['minThreshold'];
         require 'template-parts/' . $template . '.php';
+    }
+
+
+    // param results array
+    function get_nutrition_diagramm_array($diary, $chunk = false)
+    {
+        if (!$diary) return;
+
+        $results = [
+            [
+                'template' => 'calorieDistributionOfMeals',
+                'data' => $diary['calorieDistributionOfMeals'],
+            ],
+            [
+                'template' => 'ratioPFC',
+                'data' => $diary['ratioPFC'],
+            ],
+            [
+                'template' => 'percentCarbohydrates',
+                'data' => $diary['percentCarbohydrates'],
+            ],
+            [
+                'template' => 'ratioOmegas',
+                'data' => $diary['ratioOmegas'],
+            ],
+            [
+                'template' => 'ratioSodiumPotassium',
+                'data' => $diary['ratioSodiumPotassium'],
+            ],
+            [
+                'template' => 'ratioCalciumPhosphorusMagnesium',
+                'data' => $diary['ratioCalciumPhosphorusMagnesium'],
+            ],
+            [
+                'template' => 'addedSugars',
+                'data' => null,
+            ]
+        ];
+
+        if ($chunk) {
+            return array_chunk($results, 4);
+        }
+
+        return $results;
     }
 
     // tabs

@@ -33,6 +33,18 @@
         .recepies-item__text li {
             list-style: none;
         }
+
+        .page-web {
+            display: none;
+        }
+
+        /* .page-pdf {
+            display: none;
+        } */
+
+        .hero__head ._container {
+            height: auto;
+        }
     </style>
 </head>
 
