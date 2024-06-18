@@ -203,9 +203,6 @@
                 </div>
             </section>
 
-
-
-
             <?php
             $chunk_diagrams = $render->get_nutrition_diagramm_array($diary, true);
             foreach ($chunk_diagrams as $diagram) :
@@ -264,7 +261,8 @@
                         $section_title = 'Оценка фактического питания';
                         require 'template-parts/pdf-parts/section-title.php';
                         ?>
-                        <?php require 'template-parts/section-bodies/nutrition-mass.php'; ?>
+                        <?php require 'template-parts/nutrition/nutrition-mass.php'; ?>
+                        <?php require 'template-parts/nutrition/nutrition-mass-text.php'; ?>
                     </div>
                     <?php
                     require 'template-parts/pdf-parts/footer.php';
@@ -275,5 +273,159 @@
 
 
     <?php endif; ?>
+
+    <?php
+    if ($rationOnWeeks) :
+        // loop weks
+        foreach ($rationOnWeeks as $w_idx => $week) :
+            // loop days
+            foreach ($week['days'] as $d_idx => $day) :
+                // split eatings by 3 eating
+                foreach (array_chunk($day['eatings'], 3) as $eatings) :
+    ?>
+                    <section class="section nutrition-plan" id="nutrition-plan-w<?php echo $w_idx + 1 ?>-d<?php echo $d_idx + 1 ?>" data-tabs-area>
+                        <div class="section__container _container">
+                            <?php
+                            require 'template-parts/pdf-parts/header.php';
+                            ?>
+                            <div class="section__body">
+                                <?php
+                                $section_title = 'Ваш персональный план питания. Неделя ' .  $w_idx + 1;
+                                require 'template-parts/pdf-parts/section-title.php';
+                                ?>
+                                <div class="tabs">
+                                    <button class="day">День <?php echo $d_idx + 1 ?></button>
+                                </div>
+
+                                <div class="grid">
+                                    <?php
+                                    $render->get_ration_meals($eatings);
+                                    ?>
+                                </div>
+                                <?php
+                                if ($d_idx == count($week['days']) - 1) :
+                                    $render->get_ration_meals_total($week['average']);
+                                ?>
+                                    <div class="text-accent italic">
+                                        <p>Для вашего удобства вес некоторых продуктов указан не только в граммах, но и в штуках.
+                                            Если
+                                            вы видите, что указано «1
+                                            шт.», то имеется в виду продукт средних размеров. Например, «яблоко 1 шт.» — это одно
+                                            яблоко
+                                            среднего размера. 
+                                            Но, например, размер картофелины или яйца может варьироваться в широких пределах. Так, в
+                                            столбце «Количество» могут
+                                            встречаться дробные величины. Например, 1.5 яйца или 0.5 картофелины. Поэтому, чтобы вам
+                                            было удобно, для таких случаев
+                                            мы рекомендуем ориентироваться на вес таких продуктов в граммах. Так вам не придётся
+                                            разделять яйцо на части, а
+                                            измерения в граммах всегда намного точнее.</p>
+                                        <p>Эти же советы применимы к ингредиентам в рецептах и к продуктам для покупок.</p>
+                                    </div>
+                                    <div class="nutrition-plan__img">
+                                        <img src="assets/img/nutrition-plan.png" alt="">
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                            <?php
+                            require 'template-parts/pdf-parts/footer.php';
+                            ?>
+                        </div>
+                    </section>
+    <?php
+                endforeach;
+            endforeach;
+        endforeach;
+    endif;
+    ?>
+
+    <?php
+    if ($shoppingList) :
+        foreach ($shoppingList as $w_idx => $list) :
+            foreach (array_chunk($list, 6, true) as $list_items) :
+    ?>
+                <section class="section shopping-list" id="shopping-list-w-<?php echo $w_idx ?>" data-tabs-area>
+                    <div class="shopping-list__img">
+                        <img src="assets/img/shopping-list.png" alt="">
+                    </div>
+                    <div class="section__container _container">
+                        <?php
+                        require 'template-parts/pdf-parts/header.php';
+                        ?>
+                        <div class="section__body">
+                            <?php
+                            $section_title = 'Список продуктов для покупок. Неделя ' .  $w_idx + 1;
+                            require 'template-parts/pdf-parts/section-title.php';
+                            ?>
+                            <div class="grid grid-2">
+                                <?php
+                                $i = 0;
+                                foreach ($list_items as $key => $item) :
+                                    if ($i == 0) {
+                                        echo '<ol class="shopping-list__item">';
+                                    }
+                                    if ($i == 3) {
+                                        echo '</ol><ol class="shopping-list__item">';
+                                    }
+
+                                    $icon = '' . $key . '';
+                                    require 'template-parts/ration/shopping-list-item.php';
+                                    $i++;
+                                endforeach; ?>
+                                </ol>
+                            </div>
+                        </div>
+                        <?php
+                        require 'template-parts/pdf-parts/footer.php';
+                        ?>
+                    </div>
+                </section>
+    <?php
+            endforeach;
+        endforeach;
+    endif;
+    ?>
+
+    <?php
+    if ($recipeOnWeeks) :
+        foreach ($recipeOnWeeks as $w_idx => $weeks) :
+            foreach (array_chunk($weeks, 2) as $recepies) :  ?>
+
+                <section class="section recepies" id="recepies-w-<?php echo $w_idx ?>" data-tabs-area>
+                    <div class="recepies-img">
+                        <img src="assets/img/recepies.png" alt="">
+                    </div>
+                    <div class="section__container _container">
+                        <?php
+                        require 'template-parts/pdf-parts/header.php';
+                        ?>
+                        <div class="section__body">
+                            <?php
+                            $section_title = 'Рецепты. Неделя ' .  $w_idx + 1;
+                            require 'template-parts/pdf-parts/section-title.php';
+                            ?>
+
+                            <div class="grid">
+                                <?php foreach ($recepies as $item) :  ?>
+                                    <?php
+                                    require 'template-parts/recepies/recepie-item.php';
+                                    ?>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                        <?php
+                        require 'template-parts/pdf-parts/footer.php';
+                        ?>
+                    </div>
+                </section>
+    <?php
+            endforeach;
+        endforeach;
+    endif;
+    ?>
+
+    <?php
+    require 'template-parts/pdf-parts/contacts.php';
+    ?>
 
 </main>

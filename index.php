@@ -73,13 +73,13 @@ $show_section = false;
 require 'template-parts/head.php';
 
 // web page 
-// require 'page-web.php';
-
+// require 'page-web.php'; 
+ 
 // pdf page
 require 'page-pdf.php';
 
 require 'template-parts/scripts.php';
-
+ 
 // $newcontent = ob_get_contents();
 // ob_clean();
 

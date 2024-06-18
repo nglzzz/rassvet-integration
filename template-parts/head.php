@@ -45,6 +45,10 @@
         .hero__head ._container {
             height: auto;
         }
+
+        .page-pdf .nutrition-plan__item:not(:last-child) {
+            margin-bottom: 0;
+        }
     </style>
 </head>
 

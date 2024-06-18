@@ -157,7 +157,8 @@ require 'template-parts/web-parts/header.php';
             <section class="section nutrition-mass">
                 <div class="section__container _container">
                     <div class="section__body">
-                        <?php require 'template-parts/section-bodies/nutrition-mass.php'; ?>
+                        <?php require 'template-parts/nutrition/nutrition-mass.php'; ?>
+                        <?php require 'template-parts/nutrition/nutrition-mass-text.php'; ?>
                     </div>
                 </div>
             </section>
@@ -268,9 +269,11 @@ require 'template-parts/web-parts/header.php';
                             }
                         ?>
                             <div data-tab-content="<?php echo $i ?>" class="<?php echo $_active ?>">
-                                <?php
-                                $render->get_shopping_list($item);
-                                ?>
+                                <div class="grid grid-3">
+                                    <?php
+                                    $render->get_shopping_list($item);
+                                    ?>
+                                </div>
                             </div>
                         <?php $i++;
                         endforeach; ?>
