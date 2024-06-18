@@ -69,20 +69,29 @@ $show_section = false;
 
 
 // start building html
-// ob_start();
+ob_start();
 require 'template-parts/head.php';
 
 // web page 
-// require 'page-web.php'; 
- 
+require 'page-web.php';
+
 // pdf page
 require 'page-pdf.php';
 
 require 'template-parts/scripts.php';
- 
-// $newcontent = ob_get_contents();
-// ob_clean();
 
-// $handle = fopen($patient_name . '.html', 'w+');
-// fwrite($handle, $newcontent);
-// fclose($handle);
+$newcontent = ob_get_contents();
+ob_clean();
+
+$handle = fopen($patient_name . '.html', 'w+');
+$file = fwrite($handle, $newcontent);
+fclose($handle);
+
+
+$filename = $patient_name . '.html';
+
+if (file_exists($filename)) {
+    echo '<p>Отчет пациента <a href="/' . $filename . '">' . $filename . '</a> создан. <a href="/' . $filename . '">Посмотреть </a></p>';
+} else {
+    echo 'Произошла ошибка';
+}
