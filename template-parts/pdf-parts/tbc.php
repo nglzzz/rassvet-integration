@@ -28,7 +28,6 @@
         let sections = [...document.querySelectorAll('section')];
 
         sections.splice(0, 2)
-        sections.splice(-1)
 
         sections = sections.filter(section => section.querySelector('.section__title'))
         sections = sections.filter(section => section.querySelector('.section__footer'))
@@ -46,7 +45,9 @@
             sections.push(uniqueSections[key])
         }
 
+
         sections = chunkArray(sections)
+
         sections.forEach(sections_chunk => {
             let sectionTbc = `<section class="section tbc">
                                 <div class="section__container _container">
@@ -59,12 +60,9 @@
                                         <nav><ul>
                                     `
 
-            sections_chunk.forEach(section => {
-                const footer = section.querySelector('.section__footer')
-                const titleElem = section.querySelector('.section__title')
-
-                const page = footer.querySelector('.page').dataset.page
-                title = titleElem.querySelector('span').textContent
+            sections_chunk.forEach((section, i) => {
+                const page = section.querySelector('.section__footer .page').dataset.page
+                const title = section.querySelector('.section__title span').textContent
 
                 sectionTbc += `<li> 
                                 <a href="#${section.id}">

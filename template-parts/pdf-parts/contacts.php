@@ -65,9 +65,6 @@
             рекомендации и
             медицинские назначения, если иное не указано вашим лечащим врачом.
         </div>
-        <div class="section__footer">
-            <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-            <div class="page">2</div>
-        </div>
+        <?php require 'template-parts/pdf-parts/footer.php'; ?>
     </div>
 </section>
