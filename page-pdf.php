@@ -13,11 +13,11 @@
             ?>
             <div class="section__body">
                 <?php
-                require 'template-parts/section-bodies/intro.php';
+                require 'template-parts/intro.php';
                 ?>
             </div>
             <?php
-            $page = 2;
+            $page = 1;
             require 'template-parts/pdf-parts/footer.php';
             ?>
         </div>
@@ -27,7 +27,7 @@
     require 'template-parts/pdf-parts/tbc.php';
     ?>
 
-    <section class="section params <?php if ($gender == 'male') echo 'params-male'; ?>">
+    <section class="section params <?php if ($gender == 'male') echo 'params-male'; ?>" id="params">
         <div class="section__container _container">
             <?php
             require 'template-parts/pdf-parts/header.php';
@@ -51,9 +51,9 @@
     <?php
     if (array_key_exists('bioimpedansometry', $metabolism)) :
         $chunk_results = $render->get_param_results_array($metabolism, true);
-        foreach ($chunk_results as $result) :
+        foreach ($chunk_results as $idx => $result) :
     ?>
-            <section class="section results">
+            <section class="section results" id="results-<?php echo $idx + 1 ?>">
                 <div class="section__container _container">
                     <?php
                     require 'template-parts/pdf-parts/header.php';
@@ -118,7 +118,7 @@
         </div>
     </section>
 
-    <section class="section params lifestyle">
+    <section class="section params lifestyle" id="lifestyle">
         <div class="section__container _container">
             <?php
             require 'template-parts/pdf-parts/header.php';
@@ -139,7 +139,7 @@
     </section>
 
     <?php if ($diary) : ?>
-        <section class="section nutrition">
+        <section class="section nutrition" id="nutrition">
             <div class="section__container _container">
                 <?php
                 require 'template-parts/pdf-parts/header.php';
@@ -163,7 +163,7 @@
         $nutrients = $diary['nutrientsInfo']['nutrients'];
         if ($nutrients) :
         ?>
-            <section class="section nutrition-table">
+            <section class="section nutrition-table" id="nutrition-table-calories">
                 <div class="section__container _container">
                     <?php
                     require 'template-parts/pdf-parts/header.php';
@@ -183,7 +183,7 @@
                 </div>
             </section>
 
-            <section class="section nutrition-table">
+            <section class="section nutrition-table" id="nutrition-table">
                 <div class="section__container _container">
                     <?php
                     require 'template-parts/pdf-parts/header.php';
@@ -205,9 +205,9 @@
 
             <?php
             $chunk_diagrams = $render->get_nutrition_diagramm_array($diary, true);
-            foreach ($chunk_diagrams as $diagram) :
+            foreach ($chunk_diagrams as $idx => $diagram) :
             ?>
-                <section class="section nutrition-diagram">
+                <section class="section nutrition-diagram" id="nutrition-diagram-<?php echo $idx + 1 ?>">
                     <div class="section__container _container">
                         <?php
                         require 'template-parts/pdf-parts/header.php';
@@ -251,7 +251,7 @@
         $nutrient_mass = $diary['percentCategoryProductInDiary'];
         if ($nutrient_mass) :
         ?>
-            <section class="section nutrition-mass">
+            <section class="section nutrition-mass" id="nutrition-mass">
                 <div class="section__container _container">
                     <?php
                     require 'template-parts/pdf-parts/header.php';

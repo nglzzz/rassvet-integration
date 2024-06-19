@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная</title>
-    <link rel="stylesheet" href="assets/css/style.min.css?_v=20240618210544">
+    <link rel="stylesheet" href="assets/css/style.min.css?_v=20240619162314">
 </head>
 
 <body>
@@ -57,7 +57,7 @@
                     CTO                </span>
             </div>
             <div class="hero__date">
-                                <time>18.06.2024</time>
+                                <time>19.06.2024</time>
             </div>
         </div>
     </div>
@@ -6804,8 +6804,10 @@
             </div>
             <div class="section__container _container">
                 <div class="section__body">
-                    <div class="tabs">
-                        <button data-tab="1" class="_active">Неделя 1</button><button data-tab="2" class="">Неделя 2</button><button data-tab="3" class="">Неделя 3</button><button data-tab="4" class="">Неделя 4</button>                    </div>
+                    <div class="section__top">
+                        <div class="tabs">
+                            <button data-tab="1" class="_active">Неделя 1</button><button data-tab="2" class="">Неделя 2</button><button data-tab="3" class="">Неделя 3</button><button data-tab="4" class="">Неделя 4</button>                        </div>
+                    </div>
                     <div class="tabs-content">
                                                     <div data-tab-content="1" class="_active">
                                 <div class="grid grid-3">
@@ -16718,7 +16720,7 @@
                     <span></span>
                 </div>
                 <div class="date">
-                                        <time>18.06.2024</time>
+                                        <time>19.06.2024</time>
                 </div>
             </div>
         </div>
@@ -16781,154 +16783,106 @@
 </div>            </div>
             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">2</div>
+    <div class="page" data-page="2">2</div>
 </div>        </div>
     </section>
 
-    <section class="section tbc">
-    <div class="section__container _container">
-        <div class="section__header">
+    <div class="tbc-start" style="display: none;"></div>
+<script>
+    function chunkArray(array, n = 19) {
+        if (!array) return;
+
+        const result = array.reduce((resultArray, item, index) => {
+            const chunkIndex = Math.floor(index / n)
+
+            if (!resultArray[chunkIndex]) {
+                resultArray[chunkIndex] = [] // start a new chunk
+            }
+
+            resultArray[chunkIndex].push(item)
+
+            return resultArray
+        }, [])
+
+        return result;
+    }
+
+    const pdfHeader = `<div class="section__header">
     <div class="logo">
         <img src="assets/img/logo.png" alt="">
     </div>
     <div class="name">Павловна Ирина Фомина, 35 лет</div>
-</div>        <div class="section__body">
-            <div class="section__title">
-                <span>Содержание</span>
-                <img src="assets/img/icons/section-linear.svg" alt="">
-            </div>
-            <nav>
-                <ul>
-                                            <li>
-                            <a href="#type">
-                                <span>Параметры и состав тела </span>
-                                <span>02</span>
-                            </a>
-                        </li>
-                                            <li>
-                            <a href="#locale">
-                                <span>Параметры и состав тела </span>
-                                <span>02</span>
-                            </a>
-                        </li>
-                                            <li>
-                            <a href="#doctor">
-                                <span>Параметры и состав тела </span>
-                                <span>02</span>
-                            </a>
-                        </li>
-                                            <li>
-                            <a href="#patient">
-                                <span>Параметры и состав тела </span>
-                                <span>02</span>
-                            </a>
-                        </li>
-                                            <li>
-                            <a href="#diary">
-                                <span>Параметры и состав тела </span>
-                                <span>02</span>
-                            </a>
-                        </li>
-                                            <li>
-                            <a href="#ration">
-                                <span>Параметры и состав тела </span>
-                                <span>02</span>
-                            </a>
-                        </li>
-                    
-                    <li>
-                        <a href="#">
-                            <span>Параметры и состав тела </span>
-                            <span>02</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>Образ жизни и состояние здоровья</span>
-                            <span>08</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>Оценка фактического питания</span>
-                            <span>09</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>Анализы</span>
-                            <span>15</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>Рекомендуемые исследования</span>
-                            <span>17</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>Заключение и рекомендуемые исследования</span>
-                            <span>18</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>Контрольные исследования</span>
-                            <span>19</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>Риски развития алиментарных заболеваний</span>
-                            <span>20</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>Итоговые заключения</span>
-                            <span>21</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>Пищевая ценность рекомендуемого рациона. Неделя 1</span>
-                            <span>22</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>Ваш персональный план питания. Неделя 1</span>
-                            <span>25</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>Спсиок продуктов. Неделя 1</span>
-                            <span>26</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>Рецепты. Неделя 1</span>
-                            <span>27</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>Контакты</span>
-                            <span>28</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <div class="section__footer">
+</div>`
+
+
+    let uniqueSections = {}
+
+    document.addEventListener('DOMContentLoaded', function(e) {
+        const tbcStart = document.querySelector('.tbc-start');
+        let sections = [...document.querySelectorAll('section')];
+
+        sections.splice(0, 2)
+        sections.splice(-1)
+
+        sections = sections.filter(section => section.querySelector('.section__title'))
+        sections = sections.filter(section => section.querySelector('.section__footer'))
+
+        sections.forEach(section => {
+            const title = section.querySelector('.section__title span').textContent
+
+            if (!uniqueSections[`${title}`]) {
+                uniqueSections[`${title}`] = section
+            }
+        })
+
+        sections = []
+        for (const key in uniqueSections) {
+            sections.push(uniqueSections[key])
+        }
+
+        sections = chunkArray(sections)
+        sections.forEach(sections_chunk => {
+            let sectionTbc = `<section class="section tbc">
+                                <div class="section__container _container">
+                                    ${pdfHeader}
+                                    <div class="section__body">
+                                        <div class="section__title">
+                                            <span>Содержание</span>
+                                            <img src="assets/img/icons/section-linear.svg" alt="">
+                                        </div>
+                                        <nav><ul>
+                                    `
+
+            sections_chunk.forEach(section => {
+                const footer = section.querySelector('.section__footer')
+                const titleElem = section.querySelector('.section__title')
+
+                const page = footer.querySelector('.page').dataset.page
+                title = titleElem.querySelector('span').textContent
+
+                sectionTbc += `<li> 
+                                <a href="#${section.id}">
+                                    <span>${title}</span>
+                                    <span>${page}</span>
+                                </a>
+                            </li>`
+            })
+
+            sectionTbc += `
+                        </ul>
+                        </nav>
+                    </div>
+                   <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">3</div>
-</div>    </div>
-</section>
-    <section class="section params ">
+    <div class="page" data-page="3">3</div>
+</div>                </div>
+            </section>`
+
+            tbcStart.insertAdjacentHTML('beforebegin', sectionTbc)
+        })
+    })
+</script>
+    <section class="section params " id="params">
         <div class="section__container _container">
             <div class="section__header">
     <div class="logo">
@@ -17111,11 +17065,11 @@
             <div class="params-text _desctop">* Хорошая физическая форма</div>
             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">4</div>
+    <div class="page" data-page="4">4</div>
 </div>        </div>
     </section>
 
-                <section class="section results">
+                <section class="section results" id="results-1">
                 <div class="section__container _container">
                     <div class="section__header">
     <div class="logo">
@@ -17406,7 +17360,7 @@
                     <div class="results-text">*Если вам потребуются разъяснения, обратитесь к специалисту.</div>
                     <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">5</div>
+    <div class="page" data-page="5">5</div>
 </div>                </div>
             </section>
     
@@ -17459,11 +17413,11 @@
 </div>            </div>
             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">6</div>
+    <div class="page" data-page="6">6</div>
 </div>        </div>
     </section>
 
-    <section class="section params lifestyle">
+    <section class="section params lifestyle" id="lifestyle">
         <div class="section__container _container">
             <div class="section__header">
     <div class="logo">
@@ -17597,11 +17551,11 @@
 </div>            </div>
             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">7</div>
+    <div class="page" data-page="7">7</div>
 </div>        </div>
     </section>
 
-            <section class="section nutrition">
+            <section class="section nutrition" id="nutrition">
             <div class="section__container _container">
                 <div class="section__header">
     <div class="logo">
@@ -17733,11 +17687,11 @@
                 </div>
                 <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">8</div>
+    <div class="page" data-page="8">8</div>
 </div>            </div>
         </section>
 
-                    <section class="section nutrition-table">
+                    <section class="section nutrition-table" id="nutrition-table-calories">
                 <div class="section__container _container">
                     <div class="section__header">
     <div class="logo">
@@ -17902,11 +17856,11 @@
 </div>                    </div>
                     <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">9</div>
+    <div class="page" data-page="9">9</div>
 </div>                </div>
             </section>
 
-            <section class="section nutrition-table">
+            <section class="section nutrition-table" id="nutrition-table">
                 <div class="section__container _container">
                     <div class="section__header">
     <div class="logo">
@@ -18113,11 +18067,11 @@
                     </div>
                     <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">10</div>
+    <div class="page" data-page="10">10</div>
 </div>                </div>
             </section>
 
-                            <section class="section nutrition-diagram">
+                            <section class="section nutrition-diagram" id="nutrition-diagram-1">
                     <div class="section__container _container">
                         <div class="section__header">
     <div class="logo">
@@ -18274,10 +18228,10 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">11</div>
+    <div class="page" data-page="11">11</div>
 </div>                    </div>
                 </section>
-                            <section class="section nutrition-diagram">
+                            <section class="section nutrition-diagram" id="nutrition-diagram-2">
                     <div class="section__container _container">
                         <div class="section__header">
     <div class="logo">
@@ -18363,12 +18317,12 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">12</div>
+    <div class="page" data-page="12">12</div>
 </div>                    </div>
                 </section>
             
         
-                    <section class="section nutrition-mass">
+                    <section class="section nutrition-mass" id="nutrition-mass">
                 <div class="section__container _container">
                     <div class="section__header">
     <div class="logo">
@@ -18506,7 +18460,7 @@
 <img class="nutrition-mass__img" src="assets/img/vegetables.png" alt="">                    </div>
                     <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">13</div>
+    <div class="page" data-page="13">13</div>
 </div>                </div>
             </section>
         
@@ -18661,7 +18615,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">14</div>
+    <div class="page" data-page="14">14</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w1-d1" data-tabs-area>
@@ -18727,7 +18681,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">15</div>
+    <div class="page" data-page="15">15</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w1-d2" data-tabs-area>
@@ -18871,7 +18825,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">16</div>
+    <div class="page" data-page="16">16</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w1-d3" data-tabs-area>
@@ -19015,7 +18969,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">17</div>
+    <div class="page" data-page="17">17</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w1-d4" data-tabs-area>
@@ -19175,7 +19129,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">18</div>
+    <div class="page" data-page="18">18</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w1-d5" data-tabs-area>
@@ -19327,7 +19281,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">19</div>
+    <div class="page" data-page="19">19</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w1-d6" data-tabs-area>
@@ -19471,7 +19425,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">20</div>
+    <div class="page" data-page="20">20</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w1-d7" data-tabs-area>
@@ -19689,7 +19643,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">21</div>
+    <div class="page" data-page="21">21</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w2-d1" data-tabs-area>
@@ -19841,7 +19795,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">22</div>
+    <div class="page" data-page="22">22</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w2-d2" data-tabs-area>
@@ -19977,7 +19931,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">23</div>
+    <div class="page" data-page="23">23</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w2-d3" data-tabs-area>
@@ -20129,7 +20083,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">24</div>
+    <div class="page" data-page="24">24</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w2-d4" data-tabs-area>
@@ -20289,7 +20243,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">25</div>
+    <div class="page" data-page="25">25</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w2-d5" data-tabs-area>
@@ -20433,7 +20387,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">26</div>
+    <div class="page" data-page="26">26</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w2-d6" data-tabs-area>
@@ -20577,7 +20531,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">27</div>
+    <div class="page" data-page="27">27</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w2-d7" data-tabs-area>
@@ -20795,7 +20749,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">28</div>
+    <div class="page" data-page="28">28</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w3-d1" data-tabs-area>
@@ -20947,7 +20901,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">29</div>
+    <div class="page" data-page="29">29</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w3-d2" data-tabs-area>
@@ -21091,7 +21045,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">30</div>
+    <div class="page" data-page="30">30</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w3-d3" data-tabs-area>
@@ -21251,7 +21205,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">31</div>
+    <div class="page" data-page="31">31</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w3-d4" data-tabs-area>
@@ -21411,7 +21365,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">32</div>
+    <div class="page" data-page="32">32</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w3-d5" data-tabs-area>
@@ -21555,7 +21509,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">33</div>
+    <div class="page" data-page="33">33</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w3-d6" data-tabs-area>
@@ -21707,7 +21661,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">34</div>
+    <div class="page" data-page="34">34</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w3-d7" data-tabs-area>
@@ -21933,7 +21887,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">35</div>
+    <div class="page" data-page="35">35</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w4-d1" data-tabs-area>
@@ -22085,7 +22039,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">36</div>
+    <div class="page" data-page="36">36</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w4-d2" data-tabs-area>
@@ -22237,7 +22191,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">37</div>
+    <div class="page" data-page="37">37</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w4-d3" data-tabs-area>
@@ -22373,7 +22327,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">38</div>
+    <div class="page" data-page="38">38</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w4-d4" data-tabs-area>
@@ -22517,7 +22471,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">39</div>
+    <div class="page" data-page="39">39</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w4-d5" data-tabs-area>
@@ -22677,7 +22631,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">40</div>
+    <div class="page" data-page="40">40</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w4-d6" data-tabs-area>
@@ -22837,7 +22791,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">41</div>
+    <div class="page" data-page="41">41</div>
 </div>                        </div>
                     </section>
                         <section class="section nutrition-plan" id="nutrition-plan-w4-d7" data-tabs-area>
@@ -23063,7 +23017,7 @@
                                                             </div>
                             <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">42</div>
+    <div class="page" data-page="42">42</div>
 </div>                        </div>
                     </section>
     
@@ -23341,7 +23295,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">43</div>
+    <div class="page" data-page="43">43</div>
 </div>                    </div>
                 </section>
                     <section class="section shopping-list" id="shopping-list-w-0" data-tabs-area>
@@ -23528,7 +23482,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">44</div>
+    <div class="page" data-page="44">44</div>
 </div>                    </div>
                 </section>
                     <section class="section shopping-list" id="shopping-list-w-0" data-tabs-area>
@@ -23641,7 +23595,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">45</div>
+    <div class="page" data-page="45">45</div>
 </div>                    </div>
                 </section>
                     <section class="section shopping-list" id="shopping-list-w-0" data-tabs-area>
@@ -23701,7 +23655,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">46</div>
+    <div class="page" data-page="46">46</div>
 </div>                    </div>
                 </section>
                     <section class="section shopping-list" id="shopping-list-w-1" data-tabs-area>
@@ -23960,7 +23914,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">47</div>
+    <div class="page" data-page="47">47</div>
 </div>                    </div>
                 </section>
                     <section class="section shopping-list" id="shopping-list-w-1" data-tabs-area>
@@ -24117,7 +24071,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">48</div>
+    <div class="page" data-page="48">48</div>
 </div>                    </div>
                 </section>
                     <section class="section shopping-list" id="shopping-list-w-1" data-tabs-area>
@@ -24228,7 +24182,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">49</div>
+    <div class="page" data-page="49">49</div>
 </div>                    </div>
                 </section>
                     <section class="section shopping-list" id="shopping-list-w-1" data-tabs-area>
@@ -24264,7 +24218,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">50</div>
+    <div class="page" data-page="50">50</div>
 </div>                    </div>
                 </section>
                     <section class="section shopping-list" id="shopping-list-w-2" data-tabs-area>
@@ -24533,7 +24487,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">51</div>
+    <div class="page" data-page="51">51</div>
 </div>                    </div>
                 </section>
                     <section class="section shopping-list" id="shopping-list-w-2" data-tabs-area>
@@ -24684,7 +24638,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">52</div>
+    <div class="page" data-page="52">52</div>
 </div>                    </div>
                 </section>
                     <section class="section shopping-list" id="shopping-list-w-2" data-tabs-area>
@@ -24797,7 +24751,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">53</div>
+    <div class="page" data-page="53">53</div>
 </div>                    </div>
                 </section>
                     <section class="section shopping-list" id="shopping-list-w-2" data-tabs-area>
@@ -24842,7 +24796,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">54</div>
+    <div class="page" data-page="54">54</div>
 </div>                    </div>
                 </section>
                     <section class="section shopping-list" id="shopping-list-w-3" data-tabs-area>
@@ -25113,7 +25067,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">55</div>
+    <div class="page" data-page="55">55</div>
 </div>                    </div>
                 </section>
                     <section class="section shopping-list" id="shopping-list-w-3" data-tabs-area>
@@ -25270,7 +25224,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">56</div>
+    <div class="page" data-page="56">56</div>
 </div>                    </div>
                 </section>
                     <section class="section shopping-list" id="shopping-list-w-3" data-tabs-area>
@@ -25373,7 +25327,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">57</div>
+    <div class="page" data-page="57">57</div>
 </div>                    </div>
                 </section>
                     <section class="section shopping-list" id="shopping-list-w-3" data-tabs-area>
@@ -25429,7 +25383,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">58</div>
+    <div class="page" data-page="58">58</div>
 </div>                    </div>
                 </section>
     
@@ -25584,7 +25538,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">59</div>
+    <div class="page" data-page="59">59</div>
 </div>                    </div>
                 </section>
     
@@ -25733,7 +25687,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">60</div>
+    <div class="page" data-page="60">60</div>
 </div>                    </div>
                 </section>
     
@@ -25954,7 +25908,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">61</div>
+    <div class="page" data-page="61">61</div>
 </div>                    </div>
                 </section>
     
@@ -26159,7 +26113,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">62</div>
+    <div class="page" data-page="62">62</div>
 </div>                    </div>
                 </section>
     
@@ -26330,7 +26284,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">63</div>
+    <div class="page" data-page="63">63</div>
 </div>                    </div>
                 </section>
     
@@ -26478,7 +26432,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">64</div>
+    <div class="page" data-page="64">64</div>
 </div>                    </div>
                 </section>
     
@@ -26620,7 +26574,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">65</div>
+    <div class="page" data-page="65">65</div>
 </div>                    </div>
                 </section>
     
@@ -26784,7 +26738,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">66</div>
+    <div class="page" data-page="66">66</div>
 </div>                    </div>
                 </section>
     
@@ -26967,7 +26921,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">67</div>
+    <div class="page" data-page="67">67</div>
 </div>                    </div>
                 </section>
     
@@ -27165,7 +27119,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">68</div>
+    <div class="page" data-page="68">68</div>
 </div>                    </div>
                 </section>
     
@@ -27314,7 +27268,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">69</div>
+    <div class="page" data-page="69">69</div>
 </div>                    </div>
                 </section>
     
@@ -27482,7 +27436,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">70</div>
+    <div class="page" data-page="70">70</div>
 </div>                    </div>
                 </section>
     
@@ -27653,7 +27607,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">71</div>
+    <div class="page" data-page="71">71</div>
 </div>                    </div>
                 </section>
     
@@ -27798,7 +27752,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">72</div>
+    <div class="page" data-page="72">72</div>
 </div>                    </div>
                 </section>
     
@@ -27947,7 +27901,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">73</div>
+    <div class="page" data-page="73">73</div>
 </div>                    </div>
                 </section>
     
@@ -28119,7 +28073,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">74</div>
+    <div class="page" data-page="74">74</div>
 </div>                    </div>
                 </section>
     
@@ -28320,7 +28274,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">75</div>
+    <div class="page" data-page="75">75</div>
 </div>                    </div>
                 </section>
     
@@ -28502,7 +28456,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">76</div>
+    <div class="page" data-page="76">76</div>
 </div>                    </div>
                 </section>
     
@@ -28741,7 +28695,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">77</div>
+    <div class="page" data-page="77">77</div>
 </div>                    </div>
                 </section>
     
@@ -28877,7 +28831,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">78</div>
+    <div class="page" data-page="78">78</div>
 </div>                    </div>
                 </section>
     
@@ -29042,7 +28996,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">79</div>
+    <div class="page" data-page="79">79</div>
 </div>                    </div>
                 </section>
     
@@ -29177,7 +29131,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">80</div>
+    <div class="page" data-page="80">80</div>
 </div>                    </div>
                 </section>
     
@@ -29324,7 +29278,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">81</div>
+    <div class="page" data-page="81">81</div>
 </div>                    </div>
                 </section>
     
@@ -29522,7 +29476,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">82</div>
+    <div class="page" data-page="82">82</div>
 </div>                    </div>
                 </section>
     
@@ -29675,7 +29629,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">83</div>
+    <div class="page" data-page="83">83</div>
 </div>                    </div>
                 </section>
     
@@ -29846,7 +29800,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">84</div>
+    <div class="page" data-page="84">84</div>
 </div>                    </div>
                 </section>
     
@@ -30002,7 +29956,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">85</div>
+    <div class="page" data-page="85">85</div>
 </div>                    </div>
                 </section>
     
@@ -30136,7 +30090,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">86</div>
+    <div class="page" data-page="86">86</div>
 </div>                    </div>
                 </section>
     
@@ -30283,7 +30237,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">87</div>
+    <div class="page" data-page="87">87</div>
 </div>                    </div>
                 </section>
     
@@ -30465,7 +30419,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">88</div>
+    <div class="page" data-page="88">88</div>
 </div>                    </div>
                 </section>
     
@@ -30688,7 +30642,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">89</div>
+    <div class="page" data-page="89">89</div>
 </div>                    </div>
                 </section>
     
@@ -30871,7 +30825,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">90</div>
+    <div class="page" data-page="90">90</div>
 </div>                    </div>
                 </section>
     
@@ -31012,7 +30966,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">91</div>
+    <div class="page" data-page="91">91</div>
 </div>                    </div>
                 </section>
     
@@ -31197,7 +31151,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">92</div>
+    <div class="page" data-page="92">92</div>
 </div>                    </div>
                 </section>
     
@@ -31373,7 +31327,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">93</div>
+    <div class="page" data-page="93">93</div>
 </div>                    </div>
                 </section>
     
@@ -31541,7 +31495,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">94</div>
+    <div class="page" data-page="94">94</div>
 </div>                    </div>
                 </section>
     
@@ -31703,7 +31657,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">95</div>
+    <div class="page" data-page="95">95</div>
 </div>                    </div>
                 </section>
     
@@ -31862,7 +31816,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">96</div>
+    <div class="page" data-page="96">96</div>
 </div>                    </div>
                 </section>
     
@@ -32017,7 +31971,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">97</div>
+    <div class="page" data-page="97">97</div>
 </div>                    </div>
                 </section>
     
@@ -32183,7 +32137,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">98</div>
+    <div class="page" data-page="98">98</div>
 </div>                    </div>
                 </section>
     
@@ -32317,7 +32271,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">99</div>
+    <div class="page" data-page="99">99</div>
 </div>                    </div>
                 </section>
     
@@ -32497,7 +32451,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">100</div>
+    <div class="page" data-page="100">100</div>
 </div>                    </div>
                 </section>
     
@@ -32727,7 +32681,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">101</div>
+    <div class="page" data-page="101">101</div>
 </div>                    </div>
                 </section>
     
@@ -32866,7 +32820,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">102</div>
+    <div class="page" data-page="102">102</div>
 </div>                    </div>
                 </section>
     
@@ -33031,7 +32985,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">103</div>
+    <div class="page" data-page="103">103</div>
 </div>                    </div>
                 </section>
     
@@ -33192,7 +33146,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">104</div>
+    <div class="page" data-page="104">104</div>
 </div>                    </div>
                 </section>
     
@@ -33327,7 +33281,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">105</div>
+    <div class="page" data-page="105">105</div>
 </div>                    </div>
                 </section>
     
@@ -33525,7 +33479,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">106</div>
+    <div class="page" data-page="106">106</div>
 </div>                    </div>
                 </section>
     
@@ -33684,7 +33638,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">107</div>
+    <div class="page" data-page="107">107</div>
 </div>                    </div>
                 </section>
     
@@ -33834,7 +33788,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">108</div>
+    <div class="page" data-page="108">108</div>
 </div>                    </div>
                 </section>
     
@@ -33994,7 +33948,7 @@
                         </div>
                         <div class="section__footer">
     <div class="author">Лопаткин Йозеф Ипполитович, Нутрициолог</div>
-    <div class="page">109</div>
+    <div class="page" data-page="109">109</div>
 </div>                    </div>
                 </section>
     
@@ -34072,9 +34026,9 @@
     </div>
 </section>
 </main></div>
-<script src="assets/files/chart.umd.min.js?_v=20240618210544"></script>
-<script src="assets/files/chartjs-annotation.min.js?_v=20240618210544"></script>
-<script src="assets/js/app.min.js?_v=20240618210544"></script>
+<script src="assets/files/chart.umd.min.js?_v=20240619162314"></script>
+<script src="assets/files/chartjs-annotation.min.js?_v=20240619162314"></script>
+<script src="assets/js/app.min.js?_v=20240619162314"></script>
 
 </body>
 

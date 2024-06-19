@@ -10,7 +10,7 @@ require 'template-parts/web-parts/header.php';
         <div class="section__container _container">
             <div class="section__body">
                 <?php
-                require 'template-parts/section-bodies/intro.php';
+                require 'template-parts/intro.php';
                 ?>
             </div>
         </div>
@@ -253,10 +253,12 @@ require 'template-parts/web-parts/header.php';
             </div>
             <div class="section__container _container">
                 <div class="section__body">
-                    <div class="tabs">
-                        <?php
-                        $render->get_tabs($shoppingList, 'Неделя', $inner = false);
-                        ?>
+                    <div class="section__top">
+                        <div class="tabs">
+                            <?php
+                            $render->get_tabs($shoppingList, 'Неделя', $inner = false);
+                            ?>
+                        </div>
                     </div>
                     <div class="tabs-content">
                         <?php
