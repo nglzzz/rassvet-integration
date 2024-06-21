@@ -17,6 +17,22 @@
             .plan-total .nutrition-plan__total h3 {
                 display: none;
             }
+
+            .nutrition .params-item__text {
+                padding: 20px;
+            }
+
+            .nutrition .text-accent {
+                margin-top: 0;
+            }
+
+            .nutrition-graphic h3 {
+                margin-bottom: 20px;
+            }
+
+            .tbc nav a:before {
+                display: none;
+            }
         }
     </style>
 

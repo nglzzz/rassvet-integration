@@ -233,12 +233,19 @@ class Render
             ],
             [
                 'template' => 'addedSugars',
-                'data' => null,
+                'data' => false,
             ]
         ];
 
+
+        foreach ($results as $i => $item) {
+            if (!$item['data']) {
+                unset($results[$i]);
+            }
+        }
+
         if ($chunk) {
-            return array_chunk($results, 4);
+            return array_chunk($results, 3);
         }
 
         return $results;

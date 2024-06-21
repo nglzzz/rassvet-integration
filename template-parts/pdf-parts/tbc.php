@@ -1,6 +1,6 @@
 <div class="tbc-start" style="display: none;"></div>
 <script>
-    function chunkArray(array, n = 20) {
+    function chunkArray(array, n = 18) {
         if (!array) return;
 
         const result = array.reduce((resultArray, item, index) => {
@@ -48,6 +48,7 @@
 
         sections = chunkArray(sections)
 
+        let index = 1;
         sections.forEach(sections_chunk => {
             let sectionTbc = `<section class="section tbc">
                                 <div class="section__container _container">
@@ -60,16 +61,17 @@
                                         <nav><ul>
                                     `
 
-            sections_chunk.forEach((section, i) => {
+            sections_chunk.forEach(section => {
                 const page = section.querySelector('.section__footer .page').dataset.page
                 const title = section.querySelector('.section__title span').textContent
 
                 sectionTbc += `<li> 
                                 <a href="#${section.id}">
-                                    <span>${title}</span>
+                                    <span>${index}. ${title}</span>
                                     <span>${page}</span>
                                 </a>
                             </li>`
+                index++;
             })
 
             sectionTbc += `

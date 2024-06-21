@@ -23,6 +23,7 @@ if ($nutrients) :
                 <?php
                 require 'template-parts/nutrition/nutrition-table-calories.php';
                 require 'template-parts/nutrition/nutrition-table.php';
+                require 'template-parts/nutrition/nutrition-table-minerales.php';
                 ?>
             </div>
         </div>

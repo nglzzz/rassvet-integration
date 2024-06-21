@@ -95,6 +95,3 @@ require 'template-parts/scripts.php';
 // } else {
 //     echo 'Произошла ошибка';
 // }
-
-
-// осталось разделить оценку факт пит

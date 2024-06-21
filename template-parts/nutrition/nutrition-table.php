@@ -2,7 +2,6 @@
 $nutrients_array = [
     'Прочее' => $nutrients['other'],
     'Витамины' => $nutrients['vitamins'],
-    'Минаралы' => $nutrients['minerals']
 ];
 if ($nutrients_array) :
     foreach ($nutrients_array as $key => $nutrient) :
