@@ -14,14 +14,19 @@ class Render
         ];
 
         $this->icons = [
+            'Сухофрукты' => '',
             'Фрукты' => 'fruits',
+            'Зелень' => '',
             'Ягоды' => 'berries',
+            'Семена' => '',
             'Овощи' => 'vegetables',
             'Орехи' => 'nuts',
             'Бобовые' => 'beans',
             'Злаки' => 'cereals',
+            'Травы' => '',
             'Крупы' => 'cereals-2',
             'Грибы' => 'mashrooms',
+            'Специи' => '',
             'Масла' => 'oils',
             'Мясо' => 'meet',
             'Птица' => 'bird',
@@ -32,11 +37,13 @@ class Render
             'Яйца' => 'eggs',
             'Молочные продукты' => 'milk',
             'Хлебобулочные изделия' => 'bread',
+            'Арктические продукты' => '',
             'Кондитерские изделия' => 'cakes',
             'Макаронные изделия' => 'pasta',
             'Другое'  => 'other-food',
             'Напитки' => 'drinks',
             'Алкоголь' => 'alcohol',
+            'Cпортпит' => ''
         ];
     }
 
@@ -80,7 +87,7 @@ class Render
     function clean_str($str)
     {
         if (!$str) return;
-        
+
         $str = str_replace("&nbsp;", "-", $str);
         $str = preg_replace('/\s+/', '', $str);
         $str = trim($str);

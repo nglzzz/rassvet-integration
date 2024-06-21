@@ -1,12 +1,3 @@
-<style>
-    section:not(.nutrition-plan) {
-        display: none;
-    }
-
-    .recepies {
-        display: block !important;
-    }
-</style>
 <?php
 foreach ($recipeOnWeeks as $w_idx => $weeks) :
     $sorted_weeks = $render->chunk_array($weeks,  7000,  false, false);

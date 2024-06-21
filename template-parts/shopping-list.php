@@ -1,19 +1,15 @@
 <?php
 $i = 0;
 $count = count($data);
-foreach ($data as $key => $item) :
-    if ($i == 0) {
-        echo '<ol class="shopping-list__item">';
-    }
-    if (round($count / 3) == $i) {
-        echo '</ol><ol class="shopping-list__item">';
-    }
-    if (round(($count / 3) * 2) == $i) {
-        echo '</ol><ol class="shopping-list__item">';
-    }
-
-    $icon = '' . $key . '';
-    require 'template-parts/ration/shopping-list-item.php';
-    $i++;
-endforeach; ?>
+$chunk_data = $this->chunk_array($data, 6000, false, true);
+foreach ($chunk_data as $keys => $data) :
+    echo '<ol class="shopping-list__item">';
+    foreach ($data as $key => $item) :
+        $icon = '' . $key . '';
+        require 'template-parts/ration/shopping-list-item.php';
+        $i++;
+    endforeach;
+    echo '</ol>';
+endforeach;
+?>
 </ol>

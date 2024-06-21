@@ -65,43 +65,7 @@ $analisys = false;
 
 
 // hide sections
-// $show_section = false;
-
-
-
-
-$array_chunk = [];
-$list = $shoppingList[0];
-$length_str = 0;
-
-$sorted_arr = [];
-foreach ($list as $key => $li) {
-    $length = strlen(json_encode($li));
-
-    $length_str += $length;
-    $sorted_arr[$key] = $li;
-
-    // echo "$key  - $length  - $length_str <br>";
-
-    if ($length_str >= 5000) {
-        $last = end($sorted_arr);
-        array_pop($sorted_arr);
-
-        $array_chunk[] = $sorted_arr;
-
-        $length_str = strlen(json_encode($last));
-        $sorted_arr = [];
-        $sorted_arr[$key] =  $last;
-    }
-}
-
-$array_chunk[] = $sorted_arr;
-
-// $render->pre($array_chunk);
-
-foreach ($array_chunk as $list_items) :
-endforeach;
-
+$show_section = false;
 
 
 // start building html
@@ -131,3 +95,6 @@ require 'template-parts/scripts.php';
 // } else {
 //     echo 'Произошла ошибка';
 // }
+
+
+// осталось разделить оценку факт пит
