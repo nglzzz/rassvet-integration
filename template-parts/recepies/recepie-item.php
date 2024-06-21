@@ -1,6 +1,15 @@
-<div class="recepies-item">
+<?php
+
+$id = transliterator_transliterate('Russian-Latin/BGN', $item['title']);
+
+if ($add_pdf_to_id) {
+    $id .= '-pdf';
+}
+
+?>
+<div class="recepies-item" id="<?php echo $id ?>">
     <div class="recepies-item__top">
-        <h3><?php echo $item['title'] ?></h3>
+        <h3 class="recepie-title"><?php echo $item['title'] ?></h3>
         <time>
             <svg width="14" height="14" viewBox="0 0 14 14">
                 <use xlink:href='assets/img/svg/icons.svg#time' />

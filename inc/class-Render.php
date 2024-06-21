@@ -77,6 +77,17 @@ class Render
     {
     }
 
+    function clean_str($str)
+    {
+        if (!$str) return;
+        
+        $str = str_replace("&nbsp;", "-", $str);
+        $str = preg_replace('/\s+/', '', $str);
+        $str = trim($str);
+        return $str;
+    }
+
+
     // results compare percents
     function calc_to_percent($min, $max, $current, $norm)
     {
@@ -292,5 +303,56 @@ class Render
     {
         if (!$data) return;
         require 'template-parts/recepies.php';
+    }
+
+
+    function chunk_array($array, $max_str_length = 4000, $chunk = 2, $add_keys = false)
+    {
+
+        if (!$array) return;
+
+        $array_chunk = [];
+        $length_str = 0;
+        $sorted_arr = [];
+
+
+        foreach ($array as $key => $item) {
+
+            $length = strlen(json_encode($item));
+
+            $length_str += $length;
+
+            //  echo "$length - $length_str <br>";
+
+            if ($add_keys) {
+                $sorted_arr[$key] = $item;
+            } else {
+                $sorted_arr[] = $item;
+            }
+
+            if ($length_str >= $max_str_length) {
+                $last = end($sorted_arr);
+                array_pop($sorted_arr);
+
+                $array_chunk[] = $sorted_arr;
+
+                $length_str = strlen(json_encode($last));
+                $sorted_arr = [];
+
+                if ($add_keys) {
+                    $sorted_arr[$key] = $last;
+                } else {
+                    $sorted_arr[] = $last;
+                }
+            }
+        }
+
+        $array_chunk[] = $sorted_arr;
+
+        if ($chunk) {
+            return array_chunk($array_chunk, $chunk);
+        }
+
+        return $array_chunk;
     }
 }

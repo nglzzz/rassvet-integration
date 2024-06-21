@@ -17,12 +17,12 @@
         <tbody>
             <?php foreach ($item['foods'] as $food) : ?>
                 <tr>
-                    <td><?php echo $food['title'] ?></td>
+                    <td class="ration-title"><?php echo $food['title'] ?></td>
                     <td><?php echo $food['unit'] ?></td>
                     <td> <?php echo $food['mass'] ?> <?php echo $food['unit'] ?></td>
                     <td><?php echo $food['energy'] ?></td>
                     <td><?php echo $food['protein'] . '/' . $food['fat'] . '/' . $food['carbohydrate'] ?></td>
-                    <td><?php echo $food['type'] ?></td>
+                    <td class="recepie-link">-</td>
                 </tr>
             <?php endforeach; ?>
     </table>

@@ -1,6 +1,6 @@
 <div class="tbc-start" style="display: none;"></div>
 <script>
-    function chunkArray(array, n = 19) {
+    function chunkArray(array, n = 20) {
         if (!array) return;
 
         const result = array.reduce((resultArray, item, index) => {
