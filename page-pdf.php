@@ -57,9 +57,6 @@
         }
     }
 
-    require 'template-parts/pdf-parts/diary.php';
-
-
     foreach ($json_data as $name => $section) {
         $file_name = "template-parts/pdf-parts/$name.php";
 
@@ -78,7 +75,6 @@
         }
     }
     ?>
-
 
     <?php
     require 'template-parts/pdf-parts/contacts.php';
