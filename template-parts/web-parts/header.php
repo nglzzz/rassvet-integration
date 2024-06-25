@@ -7,34 +7,56 @@
             </div>
             <nav>
                 <ul>
-                    <?php if ($metabolism) : ?>
-                        <li><a href="#params">Параметры тела</a></li>
-                    <?php endif; ?>
+                    <?php
+                    $section_names = [
+                        'meta' => [
+                            'title' => 'Параметры тела',
+                            'id' => 'paramas'
+                        ],
+                        'diary' =>
+                        [
+                            'title' => 'Фактическое питание',
+                            'id' => 'nutrition'
+                        ],
+                        'analisys' => [
+                            'title' => ' Анализы и заключения',
+                            'id' => 'analisys'
+                        ],
+                        'rationOnWeeks' =>
+                        [
+                            'title' => 'Рекомендуемый рацион',
+                            'id' => 'nutrition-plan'
+                        ],
+                        'shoppingList' =>
+                        [
+                            'title' => 'Список покупок и рецепты',
+                            'id' => 'shopping-list'
+                        ],
+                    ];
+                    foreach ($patient as $name => $section) {
+                        $file_name = "template-parts/web-parts/$name.php";
+                        if ($section && file_exists($file_name) && isset($section_names[$name])) {
+                            echo '<li><a href="#' . $section_names[$name]['id'] . '">' . $section_names[$name]['title'] . '</a></li>';
+                        }
+                    }
 
-                    <?php if ($diary) : ?>
-                        <li><a href="#nutrition">Фактическое питание</a></li>
-                    <?php endif; ?>
+                    foreach ($json_data as $name => $section) {
+                        $file_name = "template-parts/web-parts/$name.php";
 
-                    <?php if ($analisys) : ?>
-                        <li>
-                            <a href="#analisys">Анализы и заключения</a>
-                            <ul>
-                                <li><a href="#analisys">Анализы</a></li>
-                                <li><a href="">Заключение и рекомендуемые исследования</a></li>
-                                <li><a href="">Контрольные исследования</a></li>
-                                <li><a href="">Риски развития алиментарных заболеваний</a></li>
-                                <li><a href="">Итоговые заключения</a></li>
-                            </ul>
-                        </li>
-                    <?php endif; ?>
+                        if ($section && file_exists($file_name) && isset($section_names[$name])) {
+                            echo '<li><a href="#' . $section_names[$name]['id'] . '">' . $section_names[$name]['title'] . '</a></li>';
+                        }
 
-                    <?php if ($ration) : ?>
-                        <li><a href="#nutrition-plan">Рекомендуемый рацион</a></li>
-                    <?php endif; ?>
-
-                    <?php if ($shoppingList) : ?>
-                        <li><a href="#shopping-list">Список покупок и рецепты</a></li>
-                    <?php endif; ?>
+                        if ($name == 'ration') {
+                            foreach ($section as $r_name => $item) {
+                                $ration_file_name = "template-parts/web-parts/ration/$r_name.php";
+                                if ($item && file_exists($ration_file_name) && isset($section_names[$r_name])) {
+                                    echo '<li><a href="#' . $section_names[$r_name]['id'] . '">' . $section_names[$r_name]['title'] . '</a></li>';
+                                }
+                            }
+                        }
+                    }
+                    ?>
                 </ul>
             </nav>
             <button class=" header__burger">
