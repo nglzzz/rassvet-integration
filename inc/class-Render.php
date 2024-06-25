@@ -63,7 +63,7 @@ class Render
         return number_format($num, $symbols, '.');
     }
 
-    function find_key($arr, $keySearch)
+    function find_key($keySearch, $arr)
     {
         $out = false;
         if (is_array($arr)) {

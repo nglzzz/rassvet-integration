@@ -45,8 +45,10 @@
                         <?php $k++;
                         endforeach; ?>
                     </div>
-                <?php $i++;
-                endforeach; ?>
+                <?php
+                    $i++;
+                endforeach;
+                ?>
             </div>
             <div class="text-accent italic">
                 <p>Для вашего удобства вес некоторых продуктов указан не только в граммах, но и в штуках.

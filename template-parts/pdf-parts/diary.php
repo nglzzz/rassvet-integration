@@ -19,8 +19,8 @@
 </section>
 
 <?php
-$nutrients = $diary['nutrientsInfo']['nutrients'];
-if ($nutrients) :
+$nutrients = $render->find_key('nutrients', $diary['nutrientsInfo']);
+if (array_key_exists('nutrientsInfo', $diary) && $nutrients) :
 ?>
     <section class="section nutrition-table" id="nutrition-table-calories">
         <div class="section__container _container">
@@ -33,6 +33,7 @@ if ($nutrients) :
                 require 'template-parts/pdf-parts/section-title.php';
                 ?>
                 <?php
+                require 'template-parts/nutrition/nutrition-table-text.php';
                 require 'template-parts/nutrition/nutrition-table-calories.php';
                 ?>
             </div>
@@ -125,7 +126,7 @@ if ($nutrients) :
 <?php endif; ?>
 
 <?php
-$nutrient_mass = $diary['percentCategoryProductInDiary'];
+$nutrient_mass = $render->find_key('percentCategoryProductInDiary', $diary);
 if ($nutrient_mass) :
 ?>
     <section class="section nutrition-mass" id="nutrition-mass">

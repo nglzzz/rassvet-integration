@@ -45,6 +45,7 @@ $ration = false;
 $shoppingList = false;
 $rationOnWeeks = false;
 $recipeOnWeeks = false;
+$infoNutrientsByRation = false;
 if (array_key_exists('ration', $json_data)) {
     $ration = $json_data['ration'];
 
@@ -56,6 +57,9 @@ if (array_key_exists('ration', $json_data)) {
     }
     if (array_key_exists('recipeOnWeeks', $ration)) {
         $recipeOnWeeks = $ration['recipeOnWeeks'];
+    }
+    if (array_key_exists('infoNutrientsByRation', $ration)) {
+        $infoNutrientsByRation = $ration['infoNutrientsByRation'];
     }
 }
 

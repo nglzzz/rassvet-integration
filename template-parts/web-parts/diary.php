@@ -14,13 +14,14 @@
 </section>
 
 <?php
-$nutrients = $diary['nutrientsInfo']['nutrients'];
-if ($nutrients) :
+$nutrients = $render->find_key('nutrients', $diary['nutrientsInfo']);
+if (array_key_exists('nutrientsInfo', $diary) && $nutrients) :
 ?>
     <section class="section nutrition-table">
         <div class="section__container _container">
             <div class="section__body">
                 <?php
+                require 'template-parts/nutrition/nutrition-table-text.php';
                 require 'template-parts/nutrition/nutrition-table-calories.php';
                 require 'template-parts/nutrition/nutrition-table.php';
                 require 'template-parts/nutrition/nutrition-table-minerales.php';
@@ -54,11 +55,10 @@ if ($nutrients) :
             </div>
         </div>
     </section>
-
 <?php endif; ?>
 
 <?php
-$nutrient_mass = $diary['percentCategoryProductInDiary'];
+$nutrient_mass = $render->find_key('percentCategoryProductInDiary', $diary);
 if ($nutrient_mass) :
 ?>
     <section class="section nutrition-mass">
