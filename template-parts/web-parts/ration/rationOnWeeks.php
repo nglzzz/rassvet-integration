@@ -67,7 +67,7 @@
                 <p>Эти же советы применимы к ингредиентам в рецептах и к продуктам для покупок.</p>
             </div>
             <div class="nutrition-plan__img">
-                <img src="assets/img/nutrition-plan.png" alt="">
+                <img src="../assets/img/nutrition-plan.png" alt="">
             </div>
         </div>
     </div>

@@ -7,7 +7,7 @@
                     <div class="params-item__left">
                         <div class="icon">
                             <svg width="39" height="39" viewBox="0 0 39 39">
-                                <use xlink:href="assets/img/svg/icons.svg#chart"></use>
+                                <use xlink:href="../assets/img/svg/icons.svg#chart"></use>
                             </svg>
                         </div>
                     </div>
@@ -24,7 +24,7 @@
                     <div class="params-item__left">
                         <div class="icon">
                             <svg width="33" height="42" viewBox="0 0 33 42">
-                                <use xlink:href="assets/img/svg/icons.svg#fire"></use>
+                                <use xlink:href="../assets/img/svg/icons.svg#fire"></use>
                             </svg>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                     <div class="params-item__left">
                         <div class="icon">
                             <svg width="39" height="39" viewBox="0 0 39 39">
-                                <use xlink:href="assets/img/svg/icons.svg#glass"></use>
+                                <use xlink:href="../assets/img/svg/icons.svg#glass"></use>
                             </svg>
                         </div>
                     </div>

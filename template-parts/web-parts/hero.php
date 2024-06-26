@@ -1,6 +1,6 @@
 <section class="hero">
     <div class="hero__bgi">
-        <img src="assets/img/hero.png" alt="">
+        <img src="../assets/img/hero.png" alt="">
     </div>
     <div class="hero__container _container">
         <div class="hero__body">

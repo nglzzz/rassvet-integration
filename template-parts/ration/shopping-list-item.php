@@ -9,7 +9,7 @@ if (isset($render)) {
 <li>
     <div>
         <svg width="18" height="19" viewBox="0 0 18 19">
-            <use xlink:href='assets/img/svg/icons.svg#<?php echo $icon_name ?>' />
+            <use xlink:href='../assets/img/svg/icons.svg#<?php echo $icon_name ?>' />
         </svg>
         <label><?php echo $key ?></label>
     </div>

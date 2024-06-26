@@ -2,7 +2,7 @@
     <div class="header__container _container">
         <div class="header__body">
             <div class="header__logo">
-                <img src="assets/img/logo.png" alt="">
+                <img src="../assets/img/logo.png" alt="">
                 <span><?php echo $doctor['work'] ?></span>
             </div>
             <nav>

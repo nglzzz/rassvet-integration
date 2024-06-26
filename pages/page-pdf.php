@@ -5,7 +5,7 @@
 
     <section class="section intro">
         <div class="intro__bgi">
-            <img src="assets/img/hero.png" alt="">
+            <img src="../assets/img/hero.png" alt="">
         </div>
         <div class="section__container _container">
             <?php

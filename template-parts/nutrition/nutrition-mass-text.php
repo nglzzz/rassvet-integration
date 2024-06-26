@@ -2,7 +2,7 @@
     <div class="params-item__wrap">
         <div class="icon">
             <svg width="48" height="48" viewBox="0 0 48 48">
-                <use xlink:href="assets/img/svg/icons.svg#info"></use>
+                <use xlink:href="../assets/img/svg/icons.svg#info"></use>
             </svg>
         </div>
         <h3>Заключение по фактическому питанию</h3>
@@ -33,4 +33,4 @@
             цели.</p>
     </div>
 </div>
-<img class="nutrition-mass__img" src="assets/img/vegetables.png" alt="">
+<img class="nutrition-mass__img" src="../assets/img/vegetables.png" alt="">

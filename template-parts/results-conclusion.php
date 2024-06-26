@@ -2,7 +2,7 @@
     <div class="params-item__wrap">
         <div class="icon">
             <svg width="48" height="48" viewBox="0 0 48 48">
-                <use xlink:href='assets/img/svg/icons.svg#info' />
+                <use xlink:href='../assets/img/svg/icons.svg#info' />
             </svg>
         </div>
         <h3>Заключение по биоимпедансному анализу</h3>

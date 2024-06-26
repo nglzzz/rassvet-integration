@@ -4,41 +4,41 @@
             <?php if ($patient['chest']) : ?>
                 <li id="params-brest">
                     <span>Грудь</span>
-                    <img class="_desctop" src="assets/img/icons/brest.svg" alt="">
-                    <img class="_mobile" src="assets/img/icons/brest-mob.svg" alt="">
+                    <img class="_desctop" src="../assets/img/icons/brest.svg" alt="">
+                    <img class="_mobile" src="../assets/img/icons/brest-mob.svg" alt="">
                     <span><?php echo $patient['chest'] ?> см</span>
                 </li>
             <?php endif; ?>
             <?php if ($patient['waist']) : ?>
                 <li id="params-waise">
                     <span>Талия</span>
-                    <img class="_desctop" src="assets/img/icons/waist.svg" alt="">
-                    <img class="_mobile" src="assets/img/icons/waist-mob.svg" alt="">
+                    <img class="_desctop" src="../assets/img/icons/waist.svg" alt="">
+                    <img class="_mobile" src="../assets/img/icons/waist-mob.svg" alt="">
                     <span><?php echo $patient['waist'] ?> см</span>
                 </li>
             <?php endif; ?>
             <?php if ($patient['wrist']) : ?>
                 <li id="params-wrist">
                     <span>Запястье</span>
-                    <img class="_desctop" src="assets/img/icons/wrist.svg" alt="">
-                    <img class="_mobile" src="assets/img/icons/wrist-mob.svg" alt="">
+                    <img class="_desctop" src="../assets/img/icons/wrist.svg" alt="">
+                    <img class="_mobile" src="../assets/img/icons/wrist-mob.svg" alt="">
                     <span><?php echo $patient['wrist'] ?> см</span>
                 </li>
             <?php endif; ?>
             <?php if ($patient['hip']) : ?>
                 <li id="params-hips">
                     <span>Бёдра</span>
-                    <img class="_desctop" src="assets/img/icons/hips.svg" alt="">
-                    <img class="_mobile" src="assets/img/icons/hips-mob.svg" alt="">
+                    <img class="_desctop" src="../assets/img/icons/hips.svg" alt="">
+                    <img class="_mobile" src="../assets/img/icons/hips-mob.svg" alt="">
                     <span><?php echo $patient['hip'] ?> см</span>
                 </li>
             <?php endif; ?>
         </ol>
         <div class="img">
             <?php if ($gender == 'female') : ?>
-                <img src="assets/img/icons/model.svg" alt="">
+                <img src="../assets/img/icons/model.svg" alt="">
             <?php else : ?>
-                <img src="assets/img/icons/model-male.svg" alt="">
+                <img src="../assets/img/icons/model-male.svg" alt="">
             <?php endif; ?>
         </div>
     </div>
@@ -50,7 +50,7 @@
                         <div class="params-item__left">
                             <div class="icon">
                                 <svg width="39" height="39" viewBox="0 0 39 39">
-                                    <use xlink:href='assets/img/svg/icons.svg#mass' />
+                                    <use xlink:href='../assets/img/svg/icons.svg#mass' />
                                 </svg>
                             </div>
                         </div>
@@ -67,7 +67,7 @@
                         <div class="params-item__left">
                             <div class="icon">
                                 <svg width="44" height="45" viewBox="0 0 44 45">
-                                    <use xlink:href='assets/img/svg/icons.svg#height' />
+                                    <use xlink:href='../assets/img/svg/icons.svg#height' />
                                 </svg>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                         <div class="params-item__left">
                             <div class="icon">
                                 <svg width="48" height="48" viewBox="0 0 48 48">
-                                    <use xlink:href='assets/img/svg/icons.svg#imt' />
+                                    <use xlink:href='../assets/img/svg/icons.svg#imt' />
                                 </svg>
                             </div>
                         </div>
@@ -101,7 +101,7 @@
                         <div class="params-item__left">
                             <div class="icon">
                                 <svg width="48" height="49" viewBox="0 0 48 49">
-                                    <use xlink:href='assets/img/svg/icons.svg#metabolizm' />
+                                    <use xlink:href='../assets/img/svg/icons.svg#metabolizm' />
                                 </svg>
                             </div>
                         </div>
@@ -118,7 +118,7 @@
                         <div class="params-item__left">
                             <div class="icon">
                                 <svg width="48" height="49" viewBox="0 0 48 49">
-                                    <use xlink:href='assets/img/svg/icons.svg#activity' />
+                                    <use xlink:href='../assets/img/svg/icons.svg#activity' />
                                 </svg>
                             </div>
                         </div>
@@ -144,7 +144,7 @@
                         <div class="params-item__left">
                             <div class="icon">
                                 <svg width="48" height="48" viewBox="0 0 48 48">
-                                    <use xlink:href='assets/img/svg/icons.svg#fat' />
+                                    <use xlink:href='../assets/img/svg/icons.svg#fat' />
                                 </svg>
                             </div>
                         </div>
@@ -160,7 +160,7 @@
                 <div class="params-item__wrap">
                     <div class="icon">
                         <svg width="48" height="48" viewBox="0 0 48 48">
-                            <use xlink:href='assets/img/svg/icons.svg#info' />
+                            <use xlink:href='../assets/img/svg/icons.svg#info' />
                         </svg>
                     </div>
                     <span>Комментарии</span>

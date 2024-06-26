@@ -7,13 +7,16 @@
     </div>
 <?php endif; ?>
 <div class="grid">
-    <?php if ($diary['waterDeviationFromNorm']) : ?>
+    <?php
+    $waterDeviationFromNorm = $render->find_key('waterDeviationFromNorm', $diary);
+    if ($waterDeviationFromNorm) :
+    ?>
         <div class="params-item fluid-amount">
             <div class="params-item__flex">
                 <div class="params-item__left">
                     <div class="icon">
                         <svg width="22" height="26" viewBox="0 0 22 26">
-                            <use xlink:href='assets/img/svg/icons.svg#glass' />
+                            <use xlink:href='../assets/img/svg/icons.svg#glass' />
                         </svg>
                     </div>
                 </div>
@@ -34,11 +37,11 @@
                 </div>
                 <div class="result-item__scale">
                     <?php
-                    $water_min = $diary['waterDeviationFromNorm']['minThreshold'];
-                    $water_max = $diary['waterDeviationFromNorm']['maxThreshold'];
-                    $water_current = $diary['waterDeviationFromNorm']['mass'];
-                    $water_norm = $diary['waterDeviationFromNorm']['norm'];
-                    $water_unit = $diary['waterDeviationFromNorm']['unit'];
+                    $water_min = $waterDeviationFromNorm['minThreshold'];
+                    $water_max = $waterDeviationFromNorm['maxThreshold'];
+                    $water_current = $waterDeviationFromNorm['mass'];
+                    $water_norm = $waterDeviationFromNorm['norm'];
+                    $water_unit = $waterDeviationFromNorm['unit'];
 
                     $water_status = '';
                     if ($water_current > $water_norm) {
@@ -58,13 +61,16 @@
         </div>
     <?php endif; ?>
 
-    <?php if ($diary['calorieDistributionOfMeals']) : ?>
+    <?php
+    $calorieDistributionOfMeals = $render->find_key('calorieDistributionOfMeals', $diary);
+    if ($calorieDistributionOfMeals) :
+    ?>
         <div class="params-item calorie-distribution">
             <div class="params-item__flex">
                 <div class="params-item__left">
                     <div class="icon">
                         <svg width="22" height="26" viewBox="0 0 22 26">
-                            <use xlink:href='assets/img/svg/icons.svg#cutlery' />
+                            <use xlink:href='../assets/img/svg/icons.svg#cutlery' />
                         </svg>
                     </div>
                 </div>
@@ -74,7 +80,7 @@
             </div>
             <div class="params-item__text">
                 <div class="calorie-distribution__flex">
-                    <?php foreach ($diary['calorieDistributionOfMeals'] as $item) : ?>
+                    <?php foreach ($calorieDistributionOfMeals as $item) : ?>
                         <div style="width: <?php echo $item['percent'] ?>%;">
                             <time><?php echo $item['time'] ?></time>
                             <span><?php echo $item['ingestion'] ?></span>
@@ -105,8 +111,10 @@
     количестве.
 </div>
 <?php
-$nutr_graphic  = $diary['nutrientsInfo']['meta'];
-if ($nutr_graphic) :
+$nutrientsInfo = $render->find_key('nutrientsInfo', $diary);
+$nutr_graphic = $render->find_key('meta', $nutrientsInfo);
+
+if ($nutrientsInfo && $nutr_graphic) :
 ?>
     <div class="nutrition-graphic">
         <h3>Из всех важнейших веществ в вашем рационе:</h3>

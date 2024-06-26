@@ -1,6 +1,6 @@
 <section class="section shopping-list" id="shopping-list" data-tabs-area>
     <div class="shopping-list__img">
-        <img src="assets/img/shopping-list.png" alt="">
+        <img src="../assets/img/shopping-list.png" alt="">
     </div>
     <div class="section__linear">
         <div class="_container">

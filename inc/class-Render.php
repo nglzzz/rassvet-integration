@@ -209,31 +209,31 @@ class Render
         $results = [
             [
                 'template' => 'calorieDistributionOfMeals',
-                'data' => $diary['calorieDistributionOfMeals'],
+                'data' => isset($diary['calorieDistributionOfMeals']) ?? false,
             ],
             [
                 'template' => 'ratioPFC',
-                'data' => $diary['ratioPFC'],
+                'data' => isset($diary['ratioPFC']) ?? false,
             ],
             [
                 'template' => 'percentCarbohydrates',
-                'data' => $diary['percentCarbohydrates'],
+                'data' => isset($diary['percentCarbohydrates']) ?? false,
             ],
             [
                 'template' => 'ratioOmegas',
-                'data' => $diary['ratioOmegas'],
+                'data' => isset($diary['ratioOmegas']) ?? false,
             ],
             [
                 'template' => 'ratioSodiumPotassium',
-                'data' => $diary['ratioSodiumPotassium'],
+                'data' => isset($diary['ratioSodiumPotassium']) ?? false,
             ],
             [
                 'template' => 'ratioCalciumPhosphorusMagnesium',
-                'data' => $diary['ratioCalciumPhosphorusMagnesium'],
+                'data' => isset($diary['ratioCalciumPhosphorusMagnesium']) ?? false,
             ],
             [
                 'template' => 'addedSugars',
-                'data' => false,
+                'data' => isset($diary['addedSugars']) ?? false,
             ]
         ];
 

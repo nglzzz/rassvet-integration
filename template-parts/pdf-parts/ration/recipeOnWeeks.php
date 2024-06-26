@@ -5,7 +5,7 @@ foreach ($recipeOnWeeks as $w_idx => $weeks) :
 ?>
         <section class="section recepies" id="recepies-w-<?php echo $w_idx ?>" data-tabs-area>
             <div class="recepies-img">
-                <img src="assets/img/recepies.png" alt="">
+                <img src="../assets/img/recepies.png" alt="">
             </div>
             <div class="section__container _container">
                 <?php

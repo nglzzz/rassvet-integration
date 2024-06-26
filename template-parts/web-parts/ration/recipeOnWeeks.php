@@ -1,6 +1,6 @@
 <section class="section recepies" id="recepies" data-tabs-area>
     <div class="recepies-img">
-        <img src="assets/img/recepies.png" alt="">
+        <img src="../assets/img/recepies.png" alt="">
     </div>
     <div class="section__linear">
         <div class="_container">

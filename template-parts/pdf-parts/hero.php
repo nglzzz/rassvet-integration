@@ -4,7 +4,7 @@
         <div class="_container">
             <div class="hero__head-body">
                 <div class="hero__logo">
-                    <img src="assets/img/logo.png" alt="">
+                    <img src="../assets/img/logo.png" alt="">
                     <span><?php echo $doctor['work'] ?></span>
                 </div>
                 <div class="date">
@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="hero__bgi">
-        <img src="assets/img/hero.png" alt="">
+        <img src="../assets/img/hero.png" alt="">
     </div>
     <div class="hero__container _container">
         <div class="hero__body">

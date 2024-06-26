@@ -9,9 +9,9 @@
             foreach ($nutrient_mass as $item) :
                 $icon = '' . $item['title'] . '';
             ?>
-                <li data-icon="assets/img/icons/<?php echo $render->icons[$icon] ?>.svg" data-percent="<?php echo $item['percent'] ?>">
+                <li data-icon="../assets/img/icons/<?php echo $render->icons[$icon] ?>.svg" data-percent="<?php echo $item['percent'] ?>">
                     <svg width="24" height="24" viewBox="0 0 24 24">
-                        <use xlink:href='assets/img/svg/icons.svg#<?php echo $render->icons[$icon] ?>' />
+                        <use xlink:href='../assets/img/svg/icons.svg#<?php echo $render->icons[$icon] ?>' />
                     </svg>
                     <span><?php echo $item['title'] ?></span>
                     <span><b><?php echo $item['percent'] ?>%</b></span>

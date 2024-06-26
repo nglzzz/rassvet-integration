@@ -56,7 +56,7 @@
                                     <div class="section__body">
                                         <div class="section__title">
                                             <span>Содержание</span>
-                                            <img src="assets/img/icons/section-linear.svg" alt="">
+                                            <img src="../assets/img/icons/section-linear.svg" alt="">
                                         </div>
                                         <nav><ul>
                                     `
