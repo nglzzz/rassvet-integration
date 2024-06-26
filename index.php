@@ -11,6 +11,7 @@ $router = new Router();
 $router->setEnvData();
 
 $url = key($_GET);
+echo $url;
 
 $router->addRoute('/', 'report.php');
 $router->route('/', $url);

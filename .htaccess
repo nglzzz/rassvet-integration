@@ -4,5 +4,5 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-l
-    RewriteRule (.*) /index.phg?$1 [QSA,L]
+    RewriteRule (.*) /index.php?$1 [QSA,L]
 </IfModule>

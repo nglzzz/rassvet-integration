@@ -97,9 +97,8 @@ $file = fwrite($handle, $newcontent);
 fclose($handle);
 
 if (file_exists($filename)) {
-    echo '<p>Отчет пациента <a href="/' . $filename . '">' . $patient_name . '</a> создан. <a href="/' . $filename . '">Посмотреть </a></p>';
     echo json_encode(
-        ['url' =>  $filename]
+        ['report_url' => __DIR__ . '/' . $filename]
     );
 } else {
     echo 'Error!';

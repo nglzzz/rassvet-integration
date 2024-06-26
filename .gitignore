@@ -1,2 +1,4 @@
 /vendor
 /pdf-convert
+/_client-reports/*
+/_client-reports/.gitkeep 
