@@ -4,10 +4,12 @@ require 'inc/class-Render.php';
 $render = new Render();
 
 
+
 $json_file = file_get_contents('patient.json');
 $json = json_decode($json_file, true);
-
+// комментирюй вехние эти две строки и раскомернтируй нижнюю после токо как index.php проходит проверку по пост запросу мы получем ее в этом файле
 // $json = $_POST['data'];
+
 $json_data = $json['data'];
 
 
@@ -85,6 +87,7 @@ require 'template-parts/scripts.php';
 
 $newcontent = ob_get_contents();
 ob_clean();
+// end building html
 
 $file_dir = $_ENV['CLIENT_REPORT_PATH'] . '/';
 
@@ -96,6 +99,7 @@ $handle = fopen($filename, 'w+');
 $file = fwrite($handle, $newcontent);
 fclose($handle);
 
+// ответ
 if (file_exists($filename)) {
     echo json_encode(
         ['report_url' => __DIR__ . '/' . $filename]

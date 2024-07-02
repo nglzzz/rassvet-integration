@@ -1,6 +1,7 @@
 <?php
 
 if (!isset($_POST['data'])) {
+    // раскомментируй ответ в случае отсутсвия данных в запросе
     // echo 'No POST data';
     // die();
 }
@@ -11,7 +12,6 @@ $router = new Router();
 $router->setEnvData();
 
 $url = key($_GET);
-echo $url;
 
 $router->addRoute('/', 'report.php');
 $router->route('/', $url);
