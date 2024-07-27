@@ -5,12 +5,12 @@ foreach ($chunk_results as $idx => $result) :
     <section class="section results" id="results-<?php echo $idx + 1 ?>">
         <div class="section__container _container">
             <?php
-            require 'template-parts/pdf-parts/header.php';
+            require APPLICATION_PATH . '/template-parts/pdf-parts/header.php';
             ?>
             <div class="section__body">
                 <?php
                 $section_title = 'Параметры и состав тела';
-                require 'template-parts/pdf-parts/section-title.php';
+                require APPLICATION_PATH . '/template-parts/pdf-parts/section-title.php';
                 ?>
                 <div class="section__top">
                     <h3>Результаты биоимпедансного анализа</h3>
@@ -37,7 +37,7 @@ foreach ($chunk_results as $idx => $result) :
             </div>
             <div class="results-text">*Если вам потребуются разъяснения, обратитесь к специалисту.</div>
             <?php
-            require 'template-parts/pdf-parts/footer.php';
+            require APPLICATION_PATH . '/template-parts/pdf-parts/footer.php';
             ?>
         </div>
     </section>
@@ -48,20 +48,20 @@ endforeach;
 <section class="section results-conclusion">
     <div class="section__container _container">
         <?php
-        require 'template-parts/pdf-parts/header.php';
+        require APPLICATION_PATH . '/template-parts/pdf-parts/header.php';
         ?>
         <div class="section__body">
             <?php
             $section_title = 'Параметры и состав тела';
-            require 'template-parts/pdf-parts/section-title.php';
+            require APPLICATION_PATH . '/template-parts/pdf-parts/section-title.php';
             ?>
 
             <?php
-            require 'template-parts/results-conclusion.php';
+            require APPLICATION_PATH . '/template-parts/results-conclusion.php';
             ?>
         </div>
         <?php
-        require 'template-parts/pdf-parts/footer.php';
+        require APPLICATION_PATH . '/template-parts/pdf-parts/footer.php';
         ?>
     </div>
 </section>
@@ -69,19 +69,19 @@ endforeach;
 <section class="section params lifestyle" id="lifestyle">
     <div class="section__container _container">
         <?php
-        require 'template-parts/pdf-parts/header.php';
+        require APPLICATION_PATH . '/template-parts/pdf-parts/header.php';
         ?>
         <div class="section__body">
             <?php
             $section_title = 'Образ жизни и состояние здоровья';
-            require 'template-parts/pdf-parts/section-title.php';
+            require APPLICATION_PATH . '/template-parts/pdf-parts/section-title.php';
             ?>
             <?php
-            require 'template-parts/lifestyle-params.php';
+            require APPLICATION_PATH . '/template-parts/lifestyle-params.php';
             ?>
         </div>
         <?php
-        require 'template-parts/pdf-parts/footer.php';
+        require APPLICATION_PATH . '/template-parts/pdf-parts/footer.php';
         ?>
     </div>
 </section>

@@ -6,7 +6,7 @@ foreach ($chunk_data as $keys => $data) :
     echo '<ol class="shopping-list__item">';
     foreach ($data as $key => $item) :
         $icon = '' . $key . '';
-        require 'template-parts/ration/shopping-list-item.php';
+        require APPLICATION_PATH . '/template-parts/ration/shopping-list-item.php';
         $i++;
     endforeach;
     echo '</ol>';

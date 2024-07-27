@@ -9,12 +9,12 @@ foreach ($recipeOnWeeks as $w_idx => $weeks) :
             </div>
             <div class="section__container _container">
                 <?php
-                require 'template-parts/pdf-parts/header.php';
+                require APPLICATION_PATH . '/template-parts/pdf-parts/header.php';
                 ?>
                 <div class="section__body">
                     <?php
                     $section_title = 'Рецепты. Неделя ' .  $w_idx + 1;
-                    require 'template-parts/pdf-parts/section-title.php';
+                    require APPLICATION_PATH . '/template-parts/pdf-parts/section-title.php';
                     ?>
 
                     <div class="grid">
@@ -22,13 +22,13 @@ foreach ($recipeOnWeeks as $w_idx => $weeks) :
                         ?>
                             <?php
                             $add_pdf_to_id = true;
-                            require 'template-parts/recepies/recepie-item.php';
+                            require APPLICATION_PATH . '/template-parts/recepies/recepie-item.php';
                             ?>
                         <?php endforeach; ?>
                     </div>
                 </div>
                 <?php
-                require 'template-parts/pdf-parts/footer.php';
+                require APPLICATION_PATH . '/template-parts/pdf-parts/footer.php';
                 ?>
             </div>
         </section>

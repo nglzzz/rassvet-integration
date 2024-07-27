@@ -9,12 +9,12 @@ foreach ($shoppingList as $w_idx => $list) :
             </div>
             <div class="section__container _container">
                 <?php
-                require 'template-parts/pdf-parts/header.php';
+                require APPLICATION_PATH . '/template-parts/pdf-parts/header.php';
                 ?>
                 <div class="section__body">
                     <?php
                     $section_title = 'Список продуктов для покупок. Неделя ' .  $w_idx + 1;
-                    require 'template-parts/pdf-parts/section-title.php';
+                    require APPLICATION_PATH . '/template-parts/pdf-parts/section-title.php';
                     ?>
                     <div class="grid grid-2">
                         <?php
@@ -22,7 +22,7 @@ foreach ($shoppingList as $w_idx => $list) :
                             echo '<ol class="shopping-list__item">';
                             foreach ($list_item as $key => $item) :
                                 $icon = '' . $key . '';
-                                require 'template-parts/ration/shopping-list-item.php';
+                                require APPLICATION_PATH . '/template-parts/ration/shopping-list-item.php';
                             endforeach;
                             echo '</ol>';
                         endforeach;
@@ -31,7 +31,7 @@ foreach ($shoppingList as $w_idx => $list) :
                     </div>
                 </div>
                 <?php
-                require 'template-parts/pdf-parts/footer.php';
+                require APPLICATION_PATH . '/template-parts/pdf-parts/footer.php';
                 ?>
             </div>
         </section>

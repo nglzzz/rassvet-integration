@@ -1,6 +1,6 @@
 <?php
 
-$id = transliterator_transliterate('Russian-Latin/BGN', $item['title']);
+$id = \App\Service\ReportService::translit($item['title']);
 
 if ($add_pdf_to_id) {
     $id .= '-pdf';

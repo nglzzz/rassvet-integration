@@ -2,7 +2,7 @@
     <?php
     foreach ($data as $key => $item) {
         $add_pdf_to_id = false;
-        require 'template-parts/recepies/recepie-item.php';
+        require APPLICATION_PATH . '/template-parts/recepies/recepie-item.php';
     }
     ?>
 

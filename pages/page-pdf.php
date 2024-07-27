@@ -1,6 +1,6 @@
 <main class="page-pdf">
     <?php
-    require 'template-parts/pdf-parts/hero.php';
+    require APPLICATION_PATH . '/template-parts/pdf-parts/hero.php';
     ?>
 
     <section class="section intro">
@@ -9,41 +9,41 @@
         </div>
         <div class="section__container _container">
             <?php
-            require 'template-parts/pdf-parts/header.php';
+            require APPLICATION_PATH . '/template-parts/pdf-parts/header.php';
             ?>
             <div class="section__body">
                 <?php
-                require 'template-parts/intro.php';
+                require APPLICATION_PATH . '/template-parts/intro.php';
                 ?>
             </div>
             <?php
             $page = 1;
-            require 'template-parts/pdf-parts/footer.php';
+            require APPLICATION_PATH . '/template-parts/pdf-parts/footer.php';
             ?>
         </div>
     </section>
 
     <?php
-    require 'template-parts/pdf-parts/tbc.php';
+    require APPLICATION_PATH . '/template-parts/pdf-parts/tbc.php';
     ?>
 
     <section class="section params <?php if ($gender == 'male') echo 'params-male'; ?>" id="params">
         <div class="section__container _container">
             <?php
-            require 'template-parts/pdf-parts/header.php';
+            require APPLICATION_PATH . '/template-parts/pdf-parts/header.php';
             ?>
             <div class="section__body">
                 <?php
                 $section_title = 'Параметры и состав тела';
-                require 'template-parts/pdf-parts/section-title.php';
+                require APPLICATION_PATH . '/template-parts/pdf-parts/section-title.php';
                 ?>
                 <?php
-                require 'template-parts/params.php';
+                require APPLICATION_PATH . '/template-parts/params.php';
                 ?>
             </div>
             <div class="params-text _desctop">* <?php echo $metabolism['indexes']['percent_fat']['info'] ?></div>
             <?php
-            require 'template-parts/pdf-parts/footer.php';
+            require APPLICATION_PATH . '/template-parts/pdf-parts/footer.php';
             ?>
         </div>
     </section>
@@ -51,14 +51,14 @@
     <?php
 
     foreach ($patient as $name => $section) {
-        $file_name = "template-parts/pdf-parts/$name.php";
+        $file_name = APPLICATION_PATH . "/template-parts/pdf-parts/$name.php";
         if ($section && file_exists($file_name)) {
             require $file_name;
         }
     }
 
     foreach ($json_data as $name => $section) {
-        $file_name = "template-parts/pdf-parts/$name.php";
+        $file_name = APPLICATION_PATH . "/template-parts/pdf-parts/$name.php";
 
 
         if ($section && file_exists($file_name)) {
@@ -67,7 +67,7 @@
 
         if ($name == 'ration') {
             foreach ($section as $r_name => $item) {
-                $ration_file_name = "template-parts/pdf-parts/ration/$r_name.php";
+                $ration_file_name = APPLICATION_PATH . "/template-parts/pdf-parts/ration/$r_name.php";
                 if ($item && file_exists($ration_file_name)) {
                     require $ration_file_name;
                 }
@@ -77,7 +77,7 @@
     ?>
 
     <?php
-    require 'template-parts/pdf-parts/contacts.php';
+    require APPLICATION_PATH . '/template-parts/pdf-parts/contacts.php';
     ?>
 
 </main>

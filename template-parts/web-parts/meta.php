@@ -34,7 +34,7 @@
     <div class="section__container _container">
         <div class="section__body">
             <?php
-            require 'template-parts/results-conclusion.php';
+            require APPLICATION_PATH . '/template-parts/results-conclusion.php';
             ?>
         </div>
     </div>
@@ -49,7 +49,7 @@
     <div class="section__container _container">
         <div class="section__body">
             <?php
-            require 'template-parts/lifestyle-params.php';
+            require APPLICATION_PATH . '/template-parts/lifestyle-params.php';
             ?>
         </div>
     </div>

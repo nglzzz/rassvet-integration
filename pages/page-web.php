@@ -1,16 +1,16 @@
 <?php
-require 'template-parts/web-parts/header.php';
+require APPLICATION_PATH . '/template-parts/web-parts/header.php';
 ?>
 <main class="page-web">
     <?php
-    require 'template-parts/web-parts/hero.php';
+    require APPLICATION_PATH . '/template-parts/web-parts/hero.php';
     ?>
 
     <section class="section intro">
         <div class="section__container _container">
             <div class="section__body">
                 <?php
-                require 'template-parts/intro.php';
+                require APPLICATION_PATH . '/template-parts/intro.php';
                 ?>
             </div>
         </div>
@@ -25,7 +25,7 @@ require 'template-parts/web-parts/header.php';
         <div class="section__container _container">
             <div class="section__body">
                 <?php
-                require 'template-parts/params.php';
+                require APPLICATION_PATH . '/template-parts/params.php';
                 ?>
                 <div class="params-text _desctop">* <?php echo $metabolism['indexes']['percent_fat']['info'] ?></div>
             </div>
@@ -35,14 +35,14 @@ require 'template-parts/web-parts/header.php';
     <?php
 
     foreach ($patient as $name => $section) {
-        $file_name = "template-parts/web-parts/$name.php";
+        $file_name = APPLICATION_PATH . "/template-parts/web-parts/$name.php";
         if ($section && file_exists($file_name)) {
             require $file_name;
         }
     }
 
     foreach ($json_data as $name => $section) {
-        $file_name = "template-parts/web-parts/$name.php";
+        $file_name = APPLICATION_PATH . "/template-parts/web-parts/$name.php";
 
         if ($section && file_exists($file_name)) {
             require $file_name;
@@ -50,7 +50,7 @@ require 'template-parts/web-parts/header.php';
 
         if ($name == 'ration') {
             foreach ($section as $r_name => $item) {
-                $ration_file_name = "template-parts/web-parts/ration/$r_name.php";
+                $ration_file_name = APPLICATION_PATH . "/template-parts/web-parts/ration/$r_name.php";
                 if ($item && file_exists($ration_file_name)) {
                     require $ration_file_name;
                 }
@@ -60,6 +60,6 @@ require 'template-parts/web-parts/header.php';
     ?>
 
     <?php
-    require 'template-parts/web-parts/contacts.php';
+    require APPLICATION_PATH . '/template-parts/web-parts/contacts.php';
     ?>
 </main>

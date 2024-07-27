@@ -7,12 +7,12 @@ foreach ($rationOnWeeks as $w_idx => $week) :
             <section class="section nutrition-plan" id="nutrition-plan-w<?php echo $w_idx + 1 ?>-d<?php echo $d_idx + 1 ?>" data-tabs-area>
                 <div class="section__container _container">
                     <?php
-                    require 'template-parts/pdf-parts/header.php';
+                    require APPLICATION_PATH . '/template-parts/pdf-parts/header.php';
                     ?>
                     <div class="section__body">
                         <?php
                         $section_title = 'Ваш персональный план питания. Неделя ' .  $w_idx + 1;
-                        require 'template-parts/pdf-parts/section-title.php';
+                        require APPLICATION_PATH . '/template-parts/pdf-parts/section-title.php';
                         ?>
                         <div class="tabs">
                             <button class="day">День <?php echo $d_idx + 1 ?></button>
@@ -26,7 +26,7 @@ foreach ($rationOnWeeks as $w_idx => $week) :
 
                     </div>
                     <?php
-                    require 'template-parts/pdf-parts/footer.php';
+                    require APPLICATION_PATH . '/template-parts/pdf-parts/footer.php';
                     ?>
                 </div>
             </section>
@@ -39,12 +39,12 @@ foreach ($rationOnWeeks as $w_idx => $week) :
             <section class="section nutrition-plan plan-total" id="nutrition-plan-w<?php echo $w_idx + 1 ?>-total" data-tabs-area>
                 <div class="section__container _container">
                     <?php
-                    require 'template-parts/pdf-parts/header.php';
+                    require APPLICATION_PATH . '/template-parts/pdf-parts/header.php';
                     ?>
                     <div class="section__body">
                         <?php
                         $section_title = 'Ваш персональный план питания. Неделя ' .  $w_idx + 1 . '. Итоги';
-                        require 'template-parts/pdf-parts/section-title.php';
+                        require APPLICATION_PATH . '/template-parts/pdf-parts/section-title.php';
                         ?>
 
                         <?php
@@ -73,7 +73,7 @@ foreach ($rationOnWeeks as $w_idx => $week) :
                         <?php endif; ?>
                     </div>
                     <?php
-                    require 'template-parts/pdf-parts/footer.php';
+                    require APPLICATION_PATH . '/template-parts/pdf-parts/footer.php';
                     ?>
                 </div>
             </section>

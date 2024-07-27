@@ -18,7 +18,7 @@
         return result;
     }
 
-    const pdfHeader = `<?php require 'template-parts/pdf-parts/header.php'; ?>`
+    const pdfHeader = `<?php require APPLICATION_PATH . '/template-parts/pdf-parts/header.php'; ?>`
 
 
     let uniqueSections = {}
@@ -65,7 +65,7 @@
                 const page = section.querySelector('.section__footer .page').dataset.page
                 const title = section.querySelector('.section__title span').textContent
 
-                sectionTbc += `<li> 
+                sectionTbc += `<li>
                                 <a href="#${section.id}">
                                     <span>${index}. ${title}</span>
                                     <span>${page}</span>
@@ -78,7 +78,7 @@
                         </ul>
                         </nav>
                     </div>
-                   <?php require 'template-parts/pdf-parts/footer.php'; ?>
+                   <?php require APPLICATION_PATH . '/template-parts/pdf-parts/footer.php'; ?>
                 </div>
             </section>`
 

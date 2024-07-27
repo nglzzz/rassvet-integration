@@ -1,19 +1,19 @@
 <section class="section nutrition" id="nutrition">
     <div class="section__container _container">
         <?php
-        require 'template-parts/pdf-parts/header.php';
+        require APPLICATION_PATH . '/template-parts/pdf-parts/header.php';
         ?>
         <div class="section__body">
             <?php
             $section_title = 'Оценка фактического питания';
-            require 'template-parts/pdf-parts/section-title.php';
+            require APPLICATION_PATH . '/template-parts/pdf-parts/section-title.php';
             ?>
             <?php
-            require 'template-parts/nutrition/nutrition.php';
+            require APPLICATION_PATH . '/template-parts/nutrition/nutrition.php';
             ?>
         </div>
         <?php
-        require 'template-parts/pdf-parts/footer.php';
+        require APPLICATION_PATH . '/template-parts/pdf-parts/footer.php';
         ?>
     </div>
 </section>
@@ -25,20 +25,20 @@ if (array_key_exists('nutrientsInfo', $diary) && $nutrients) :
     <section class="section nutrition-table" id="nutrition-table-calories">
         <div class="section__container _container">
             <?php
-            require 'template-parts/pdf-parts/header.php';
+            require APPLICATION_PATH . '/template-parts/pdf-parts/header.php';
             ?>
             <div class="section__body">
                 <?php
                 $section_title = 'Оценка фактического питания';
-                require 'template-parts/pdf-parts/section-title.php';
+                require APPLICATION_PATH . '/template-parts/pdf-parts/section-title.php';
                 ?>
                 <?php
-                require 'template-parts/nutrition/nutrition-table-text.php';
-                require 'template-parts/nutrition/nutrition-table-calories.php';
+                require APPLICATION_PATH . '/template-parts/nutrition/nutrition-table-text.php';
+                require APPLICATION_PATH . '/template-parts/nutrition/nutrition-table-calories.php';
                 ?>
             </div>
             <?php
-            require 'template-parts/pdf-parts/footer.php';
+            require APPLICATION_PATH . '/template-parts/pdf-parts/footer.php';
             ?>
         </div>
     </section>
@@ -46,19 +46,19 @@ if (array_key_exists('nutrientsInfo', $diary) && $nutrients) :
     <section class="section nutrition-table" id="nutrition-table">
         <div class="section__container _container">
             <?php
-            require 'template-parts/pdf-parts/header.php';
+            require APPLICATION_PATH . '/template-parts/pdf-parts/header.php';
             ?>
             <div class="section__body">
                 <?php
                 $section_title = 'Оценка фактического питания';
-                require 'template-parts/pdf-parts/section-title.php';
+                require APPLICATION_PATH . '/template-parts/pdf-parts/section-title.php';
                 ?>
                 <?php
-                require 'template-parts/nutrition/nutrition-table.php';
+                require APPLICATION_PATH . '/template-parts/nutrition/nutrition-table.php';
                 ?>
             </div>
             <?php
-            require 'template-parts/pdf-parts/footer.php';
+            require APPLICATION_PATH . '/template-parts/pdf-parts/footer.php';
             ?>
         </div>
     </section>
@@ -66,19 +66,19 @@ if (array_key_exists('nutrientsInfo', $diary) && $nutrients) :
     <section class="section nutrition-table" id="nutrition-table-minerales">
         <div class="section__container _container">
             <?php
-            require 'template-parts/pdf-parts/header.php';
+            require APPLICATION_PATH . '/template-parts/pdf-parts/header.php';
             ?>
             <div class="section__body">
                 <?php
                 $section_title = 'Оценка фактического питания';
-                require 'template-parts/pdf-parts/section-title.php';
+                require APPLICATION_PATH . '/template-parts/pdf-parts/section-title.php';
                 ?>
                 <?php
-                require 'template-parts/nutrition/nutrition-table-minerales.php';
+                require APPLICATION_PATH . '/template-parts/nutrition/nutrition-table-minerales.php';
                 ?>
             </div>
             <?php
-            require 'template-parts/pdf-parts/footer.php';
+            require APPLICATION_PATH . '/template-parts/pdf-parts/footer.php';
             ?>
         </div>
     </section>
@@ -90,12 +90,12 @@ if (array_key_exists('nutrientsInfo', $diary) && $nutrients) :
         <section class="section nutrition-diagram" id="nutrition-diagram-<?php echo $idx + 1 ?>">
             <div class="section__container _container">
                 <?php
-                require 'template-parts/pdf-parts/header.php';
+                require APPLICATION_PATH . '/template-parts/pdf-parts/header.php';
                 ?>
                 <div class="section__body">
                     <?php
                     $section_title = 'Оценка фактического питания';
-                    require 'template-parts/pdf-parts/section-title.php';
+                    require APPLICATION_PATH . '/template-parts/pdf-parts/section-title.php';
                     ?>
                     <div class="text-accent italic">
                         <p>Ниже вам представлены наглядные диаграммы. Они показывают соотношение в вашем прошлом
@@ -109,13 +109,13 @@ if (array_key_exists('nutrientsInfo', $diary) && $nutrients) :
                     <div class="grid">
                         <?php
                         foreach ($diagram as $item) {
-                            require 'template-parts/nutrition/nutrition-diagram/' . $item['template'] . '.php';
+                            include APPLICATION_PATH . '/template-parts/nutrition/nutrition-diagram/' . $item['template'] . '.php';
                         }
                         ?>
                     </div>
                 </div>
                 <?php
-                require 'template-parts/pdf-parts/footer.php';
+                require APPLICATION_PATH . '/template-parts/pdf-parts/footer.php';
                 ?>
             </div>
         </section>
@@ -132,18 +132,18 @@ if ($nutrient_mass) :
     <section class="section nutrition-mass" id="nutrition-mass">
         <div class="section__container _container">
             <?php
-            require 'template-parts/pdf-parts/header.php';
+            require APPLICATION_PATH . '/template-parts/pdf-parts/header.php';
             ?>
             <div class="section__body">
                 <?php
                 $section_title = 'Оценка фактического питания';
-                require 'template-parts/pdf-parts/section-title.php';
+                require APPLICATION_PATH . '/template-parts/pdf-parts/section-title.php';
                 ?>
-                <?php require 'template-parts/nutrition/nutrition-mass.php'; ?>
-                <?php require 'template-parts/nutrition/nutrition-mass-text.php'; ?>
+                <?php require APPLICATION_PATH . '/template-parts/nutrition/nutrition-mass.php'; ?>
+                <?php require APPLICATION_PATH . '/template-parts/nutrition/nutrition-mass-text.php'; ?>
             </div>
             <?php
-            require 'template-parts/pdf-parts/footer.php';
+            require APPLICATION_PATH . '/template-parts/pdf-parts/footer.php';
             ?>
         </div>
     </section>

@@ -65,6 +65,6 @@
             рекомендации и
             медицинские назначения, если иное не указано вашим лечащим врачом.
         </div>
-        <?php require 'template-parts/pdf-parts/footer.php'; ?>
+        <?php require APPLICATION_PATH . '/template-parts/pdf-parts/footer.php'; ?>
     </div>
 </section>

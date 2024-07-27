@@ -7,7 +7,7 @@
     <div class="section__container _container">
         <div class="section__body">
             <?php
-            require 'template-parts/nutrition/nutrition.php';
+            require APPLICATION_PATH . '/template-parts/nutrition/nutrition.php';
             ?>
         </div>
     </div>
@@ -21,10 +21,10 @@ if (array_key_exists('nutrientsInfo', $diary) && $nutrients) :
         <div class="section__container _container">
             <div class="section__body">
                 <?php
-                require 'template-parts/nutrition/nutrition-table-text.php';
-                require 'template-parts/nutrition/nutrition-table-calories.php';
-                require 'template-parts/nutrition/nutrition-table.php';
-                require 'template-parts/nutrition/nutrition-table-minerales.php';
+                require APPLICATION_PATH . '/template-parts/nutrition/nutrition-table-text.php';
+                require APPLICATION_PATH . '/template-parts/nutrition/nutrition-table-calories.php';
+                require APPLICATION_PATH . '/template-parts/nutrition/nutrition-table.php';
+                require APPLICATION_PATH . '/template-parts/nutrition/nutrition-table-minerales.php';
                 ?>
             </div>
         </div>
@@ -47,7 +47,7 @@ if (array_key_exists('nutrientsInfo', $diary) && $nutrients) :
                     $diagram = $render->get_nutrition_diagramm_array($diary);
                     foreach ($diagram as $item) {
                         if ($item['data']) {
-                            require 'template-parts/nutrition/nutrition-diagram/' . $item['template'] . '.php';
+                            include APPLICATION_PATH . '/template-parts/nutrition/nutrition-diagram/' . $item['template'] . '.php';
                         }
                     }
                     ?>
@@ -64,8 +64,8 @@ if ($nutrient_mass) :
     <section class="section nutrition-mass">
         <div class="section__container _container">
             <div class="section__body">
-                <?php require 'template-parts/nutrition/nutrition-mass.php'; ?>
-                <?php require 'template-parts/nutrition/nutrition-mass-text.php'; ?>
+                <?php require APPLICATION_PATH . '/template-parts/nutrition/nutrition-mass.php'; ?>
+                <?php require APPLICATION_PATH . '/template-parts/nutrition/nutrition-mass-text.php'; ?>
             </div>
         </div>
     </section>

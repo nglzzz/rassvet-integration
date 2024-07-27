@@ -13,7 +13,7 @@
                     ?>
                 </div>
                 <?php
-                require 'template-parts/nutrition/nutrition-table-text.php';
+                require APPLICATION_PATH . '/template-parts/nutrition/nutrition-table-text.php';
                 ?>
             </div>
             <div class="tabs-content">
@@ -29,9 +29,9 @@
                     <div data-tab-content="<?php echo $i ?>" class="<?php echo $_active ?>">
                         <?php
                         $nutrients = $item['nutrients'];
-                        require 'template-parts/nutrition/nutrition-table-calories.php';
-                        require 'template-parts/nutrition/nutrition-table.php';
-                        require 'template-parts/nutrition/nutrition-table-minerales.php';
+                        require APPLICATION_PATH . '/template-parts/nutrition/nutrition-table-calories.php';
+                        require APPLICATION_PATH . '/template-parts/nutrition/nutrition-table.php';
+                        require APPLICATION_PATH . '/template-parts/nutrition/nutrition-table-minerales.php';
                         ?>
                     </div>
                 <?php
@@ -79,7 +79,7 @@
                         // $diagram = $render->get_nutrition_diagramm_array($diary);
                         // foreach ($diagram as $item) {
                         //     if ($item['data']) {
-                        //         require 'template-parts/nutrition/nutrition-diagram/' . $item['template'] . '.php';
+                        //         include APPLICATION_PATH . '/template-parts/nutrition/nutrition-diagram/' . $item['template'] . '.php';
                         //     }
                         // }
                         ?>
