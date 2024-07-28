@@ -86,7 +86,7 @@ class ReportService
         ob_clean();
         // end building html
 
-        $file_dir = APPLICATION_PATH . '/_client-reports/';
+        $file_dir = APPLICATION_PATH . '/public/_client-reports/';
 
         $random_name = 'report_' . $this->translit($patient['last_name']) . '_' . date('Y-m-d-H-m-s');
 
