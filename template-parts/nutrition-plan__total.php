@@ -13,7 +13,10 @@
                     </div>
                     <div class="params-item__right">
                         <label>БЖУ</label>
-                        <span><?php echo $data['protein'] . '/' . $data['fat'] . '/' . $data['carbohydrate'] ?></span>
+                        <span><?php echo trim(
+                                str_replace('//', '/', ($data['protein'] ?? '') . '/' . ($data['fat'] ?? '') . '/' . ($data['carbohydrate'] ?? '')),
+                                '/',
+                            ) ?></span>
                     </div>
                 </div>
             </div>

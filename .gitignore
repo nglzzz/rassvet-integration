@@ -1,5 +1,5 @@
 /vendor
 /pdf-convert
-/pubclic/_client-reports/*
-!/_client-reports/.gitkeep
+/public/_client-reports/*
+!*.gitkeep
 *.log

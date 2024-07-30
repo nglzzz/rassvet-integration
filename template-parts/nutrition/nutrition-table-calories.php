@@ -4,6 +4,7 @@
         <span>% от вашей нормы</span>
     </span>
     <table>
+        <?php if (isset($nutrients['energy']['energy'], $nutrients_energy['percent'])): ?>
         <thead>
             <?php
             $nutrients_energy = $nutrients['energy']['energy'];
@@ -14,6 +15,7 @@
                 <th><?php echo $nutrients_energy['percent'] ?>%</th>
             </tr>
         </thead>
+        <?php endif; ?>
         <tbody>
             <?php
             $nutrients_caloreis = [
